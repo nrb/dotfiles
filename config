@@ -1,0 +1,48 @@
+[miscellany]
+### Set global-ignores to a set of whitespace-delimited globs
+### which Subversion will ignore in its 'status' output.
+global-ignores = *.pt.cache .Python .git* *.egg-info *.pyc *.pyo *.mo *.o *.lo *.la .*.rej *.rej .DS_Store .*~ *~ #*# .#* .~lock.*# .VimballRecord .netrwhist *.add.spl .AppleDouble tags tags-* svn-commit*.tmp ._* *.pt.py Powerline*.cache
+### Automatic properties are defined in the section 'auto-props'.
+enable-auto-props = yes
+
+[auth]
+store-passwords = yes
+store-auth-creds = yes
+
+### Section for configuring automatic properties.
+### The format of the entries is:
+###   file-name-pattern = propname[=value][;propname[=value]...]
+### The file-name-pattern can contain wildcards (such as '*' and
+### '?').  All entries which match will be applied to the file.
+### Note that auto-props functionality must be enabled, which
+### is typically done by setting the 'enable-auto-props' option.
+[auto-props]
+*.cgi = svn:eol-style=native
+*.cpt = svn:eol-style=native
+*.cpy = svn:eol-style=native
+*.css = svn:eol-style=native
+*.doc = svn:mime-type=application/msword
+*.dtml = svn:eol-style=native
+*.gif = svn:mime-type=image/gif
+.htaccess = svn:eol-style=native
+*.html = svn:eol-style=native
+*.ico = svn:mime-type=image/x-ico
+*.jpg = svn:mime-type=image/jpeg
+*.js = svn:eol-style=native
+*.metadata = svn:eol-style=native
+*.png = svn:mime-type=image/png
+*.properties = svn:eol-style=native
+*.props = svn:eol-style=native
+*.pt = svn:eol-style=native
+*.py = svn:eol-style=native
+*.rdf = svn:eol-style=native
+*.sh = svn:eol-style=native
+*.swf = svn:mime-type=application/x-shockwave-flash
+*.txt = svn:eol-style=native
+*.vpy = svn:eol-style=native
+*.xml = svn:eol-style=native
+*.xsd = svn:eol-style=native
+*.xsl = svn:eol-style=native
+*.xslt = svn:eol-style=native
+*.xsp = svn:eol-style=native
+*.xul = svn:eol-style=native

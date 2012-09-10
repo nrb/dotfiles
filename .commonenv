@@ -1,0 +1,128 @@
+UNAME=$(uname)
+source $HOME/.commonfuncs
+
+# let's set a proper PATH
+#########################
+
+# This is an attempt to use a fancy path generator
+# like the one in .zshenv
+new_path=""
+expected_path=(
+  "$HOME/bin/$MACHTYPE-$OSTYPE"
+  "$HOME/bin"
+  "$HOME/bin/git_achievements"
+  "$HOME/.gem/ruby/1.8/bin"
+  /opt/local/apache2/bin
+  /opt/python/bin
+  /opt/python-build/python-2.7/bin
+  /opt/python-build/python-2.6/bin
+  /opt/python-build/python-2.5/bin
+  /opt/python-build/python-2.4/bin
+  /opt/local/bin
+  /opt/local/sbin
+  /opt/local/lib/postgresql91/bin
+  /opt/local/lib/postgresql90/bin
+  /opt/local/lib/postgresql83/bin
+  /opt/local/lib/mysql55/bin
+  /opt/local/lib/mysql5/bin
+  /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+  /opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin
+  /opt/local/Library/Frameworks/Python.framework/Versions/2.5/bin
+  /opt/local/Library/Frameworks/Python.framework/Versions/2.4/bin
+  /sw/bin
+  /sw/sbin
+  /usr/bin/perlbin/site
+  /usr/bin/perlbin/vendor
+  /usr/bin/perlbin/core
+  /usr/local/Cellar/python/2.7/bin
+  /usr/local/Cellar/python/2.6/bin
+  /usr/local/Cellar/python/2.5/bin
+  /usr/local/Cellar/python/2.4/bin
+  /usr/local/bin
+  /usr/local/sbin
+  /usr/local/etc
+  /usr/Programs/bin
+  /sbin
+  /bin
+  /usr/bin
+  /usr/sbin
+  /usr/ucb
+  /usr/bsd
+  /usr/libexec
+  /Developer/Tools
+  /opt/ruby1.8/bin
+  /usr/X11R6/bin
+  /usr/X11/bin
+  /usr/bin/X11
+  /usr/local/X11/bin
+  /usr/local/contrib/lib/kde/bin
+  /usr/local/tex/bin
+  /usr/local/lib/zsh/scr
+  /usr/local/games
+  /usr/games
+  /etc
+)
+
+for element in "${expected_path[@]}"
+do
+  if [ -d $element ]; then
+    if [ -z $new_path ]; then
+      new_path=$element
+    else
+      new_path=$new_path:$element
+    fi
+  fi
+done
+
+PATH=$new_path
+export PATH
+
+# Enable a few things for less (This will also apply to man)
+#   * turn off case sensitive search (-I)
+#   * display a long prompt with more info (-M)
+#   * show colors instead of escape characters (-R)
+export LESS="-IMR"
+
+# use the SFU package server for FreeBSD
+#export PACKAGESITE=http://sfuppkg01.sixfeetup.com/FreeBSD/8.0/packages/All/
+
+# conditionally set the editor variable
+if checkPath mate_wait; then
+    # to set this up you need to symlink the mate command
+    #   $ cd ~/bin
+    #   $ ln -s /path/to/mate mate_wait
+    export EDITOR='mate_wait'
+else
+    export EDITOR=vi
+fi
+
+# use a fancy terminal
+export TERM=xterm-256color
+
+# get crazy with python, and the cheese whiz
+#export PYTHONSTARTUP=$HOME/.pystartup
+
+# prefer to use distribute for virtualenvs
+export VIRTUALENV_USE_DISTRIBUTE="TRUE"
+
+# add our public repo to the pip find links
+export PIP_FIND_LINKS="http://dist.sixfeetup.com/public/"
+export PIP_DOWNLOAD_CACHE="$HOME/.pip_download_cache"
+
+# set up some more OS X specific stuff
+if [ $UNAME = "Darwin" ]; then
+    # Figure out the major and minor version of OS X
+    os_majorversion=$(sw_vers | awk '/ProductVersion/ {print $2}' | cut -f2 -d'.')
+    os_minorversion=$(sw_vers | awk '/ProductVersion/ {print $2}' | cut -f3 -d'.')
+    
+    # to not tar up resource forks, you'll need this
+    if [  $os_majorversion -ge 5 ]; then
+        # Leopard version (and beyond??)
+        export COPYFILE_DISABLE="True"
+    elif [ ${os_majorversion} -eq 4 ] && [ ${os_minorversion} -ge 6 ]; then
+        # Tiger version
+        export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
+    fi
+
+fi
+

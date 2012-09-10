@@ -1,0 +1,12 @@
+# use vi for all command lines
+set editing-mode vi 
+set keymap vi
+
+# ignore the case
+#set completion-ignore-case on
+
+# actually tab the first time :)
+#set show-all-if-ambiguous on
+
+# turn off the annoying bell
+set bell-style none

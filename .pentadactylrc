@@ -1,0 +1,7 @@
+"hg6814
+
+loadplugins '\.(js|penta)$'
+group user
+set defsearch=cony
+
+" vim: set ft=pentadactyl:

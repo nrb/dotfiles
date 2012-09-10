@@ -1,0 +1,102 @@
+# This is a modified version of Phil's prompt
+# I removed the battery monitor, color and simplified
+# the title bar to just the host
+#
+# http://aperiodic.net/phil/prompt/
+
+function precmd {
+    # make sure that all new commands are available
+    rehash
+
+    local TERMWIDTH
+    (( TERMWIDTH = ${COLUMNS} - 1 ))
+    
+    # Truncate the path if it's too long.
+    PR_FILLBAR=""
+    PR_PWDLEN=""
+    
+    local promptsize=${#${(%):---%D{%a\,%b %d}-----}}
+    local pwdsize=${#${(%):-%d}}
+    
+    if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
+            ((PR_PWDLEN=$TERMWIDTH - $promptsize))
+    else
+        PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
+    fi
+
+    # Only show user in the prompt if it isn't yourself
+    # Make sure and set the $ME var in .zshrc
+    PR_IMPOSTER=""
+    [ "$ME" != "" ] && [ $(whoami) != "$ME" ] && PR_IMPOSTER="(%n%)"
+}
+
+setopt extended_glob
+preexec () {
+    if [[ "$TERM" == "screen" ]]; then
+        local CMD=${1[(wr)^(*=*|sudo|-*)]}
+        echo -n "\ek$CMD\e\\"
+    fi
+}
+
+setprompt () {
+    # Need this so the prompt will work.
+    setopt prompt_subst
+    
+    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+    
+    # See if we can use extended characters to look nicer.
+    typeset -A altchar
+    set -A altchar ${(s..)terminfo[acsc]}
+    PR_SET_CHARSET="%{$terminfo[enacs]%}"
+    PR_SHIFT_IN="%{$terminfo[smacs]%}"
+    PR_SHIFT_OUT="%{$terminfo[rmacs]%}"
+    PR_HBAR=${altchar[q]:--}
+    PR_ULCORNER=${altchar[l]:--}
+    PR_LLCORNER=${altchar[m]:--}
+    PR_LRCORNER=${altchar[j]:--}
+    PR_URCORNER=${altchar[k]:--}
+    
+    # Decide if we need to set titlebar text.
+    case $TERM in
+       xterm*)
+           PR_TITLEBAR=$'%{\e]0;%m $PR_IMPOSTER\a%}'
+           ;;
+       screen)
+           PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %m $PR_IMPOSTER\e\\%}'
+           ;;
+       *)
+           PR_TITLEBAR=''
+           ;;
+    esac
+    
+    # Decide whether to set a screen title
+    if [[ "$TERM" == "screen" ]]; then
+        PR_STITLE=$'%{\ekzsh\e\\%}'
+    else
+        PR_STITLE=''
+    fi
+    
+    # Finally, the prompt (removed the color - claytron)
+    PROMPT='$PR_IMPOSTER
+$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
+$PR_SHIFT_IN$PR_ULCORNER$PR_HBAR$PR_SHIFT_OUT\
+%D{%a,%b %d}\
+$PR_SHIFT_IN$PR_HBAR$PR_HBAR${(e)PR_FILLBAR}$PR_HBAR$PR_SHIFT_OUT\
+%$PR_PWDLEN<...<%d%<<\
+$PR_SHIFT_IN$PR_HBAR$PR_URCORNER$PR_SHIFT_OUT\
+
+$PR_SHIFT_IN$PR_LLCORNER$PR_HBAR$PR_SHIFT_OUT\
+%m%#\
+$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT '
+
+    RPROMPT=' $PR_SHIFT_IN$PR_HBAR$PR_HBAR$PR_SHIFT_OUT\
+%T\
+$PR_SHIFT_IN$PR_HBAR$PR_LRCORNER$PR_SHIFT_OUT'
+
+    PS2='$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT(\
+%_)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT '
+}
+
+setprompt

@@ -1,0 +1,162 @@
+UNAME=$(uname)
+source $HOME/.commonfuncs
+
+# re link all the conf files
+alias qs='~/.dotfiles/create_links.sh'
+
+# prefer vim over vi
+if checkPath vim; then
+    alias vi=vim
+else
+    # but use vi if vim isn't around
+    alias vim=vi
+fi
+
+# shortcut for long descrip checking
+alias py_long_descrip="python2.4 setup.py --long-description"
+# use cat to show the file
+alias descrip_check="py_long_descrip > /tmp/package.rst && rst2html.py /tmp/package.rst /tmp/package.html && cat -n /tmp/package.rst"
+
+# some OS X specific stuff
+##########################
+if [[ $UNAME == "Darwin" ]]; then
+    
+    # set up a path in .profile for TextMate (zsh haterz)
+    echo "export PATH=$PATH" > $HOME/.profile
+
+    # Helpers to see if a python package's long descrip is proper...
+    alias descrip_check="py_long_descrip > /tmp/package.rst && rst2html.py /tmp/package.rst /tmp/package.html && mate /tmp/package.rst"
+    # run the setup.py descrip through docutils, then open it with the default browser
+    alias descrip_check_open="py_long_descrip | rst2html.py > /tmp/foo.html && open file:///tmp/foo.html"
+
+    # iPhone doesn't have a defaults command...yet
+    if checkPath defaults; then
+        # also set up the osx path
+        # (this will overwrite the PATH everytime we open a shell)
+        defaults write $HOME/.MacOSX/environment PATH -string $PATH
+    fi
+
+    # add ports into the $MANPATH
+    export MANPATH=/opt/local/man:$MANPATH
+fi
+
+# processes
+###########
+# output more lines so that you can grep them
+alias psa='ps axwww'
+# grep through processes
+alias psg='psa | grep -i'
+
+# svn helpers
+#############
+#alias svnps="svn propset svn:externals -F EXTERNALS.txt ."
+#alias svnpsi="svn propset svn:ignore -F IGNORE.txt ."
+export SVN_EDITOR=vim
+
+# zope runs most QA/Staging instances...
+alias zu='sudo -H -u zope'
+
+# buildout...
+#############
+#alias bfg='bin/control fg'
+#alias bs='bin/control stop'
+#alias bbn='bin/buildout -v'
+# creating the buildout.cfg
+if [ $UNAME = "FreeBSD" ]; then
+    alias bcl='cp profiles/buildout.cfg.tmpl buildout.cfg && sed -I "" -e "s/#\(    profiles\/local\.cfg\)/\1/" buildout.cfg'
+else
+    alias bcl='cp profiles/buildout.cfg.tmpl buildout.cfg && sed -i "" -e "s/#\(    profiles\/local\.cfg\)/\1/" buildout.cfg'
+fi
+
+
+# pep8 that can scan a `src` dir
+alias pep8scan="pep8 --repeat --show-source --statistics --exclude=paste"
+
+# make copy and move ask before replacing files
+alias cp='cp -i'
+alias mv='mv -i'
+
+# ls aliases
+############
+# conditionally set up coloring on different OS types
+if [ $UNAME = "FreeBSD" ] || [ $UNAME = "Darwin" ]; then
+   alias ls="ls -F"
+elif [ $UNAME = "Linux" ]; then
+   alias ls="ls --color=auto -F"
+elif [ $UNAME = 'SunOS' ]; then
+   alias ls="ls --color=always -F"
+fi
+
+# show me everything
+alias ll='ls -al'
+# sort by size
+alias lss='ll -Sr'
+# sort by date modified
+alias lsdate='lsa -tr'
+# ll but human readable size
+alias lsa='ll -H'
+# don't list directories
+#alias lsd='lsa -d'
+# list all dot files
+#alias lsdot='lsd .*'
+
+# tar
+#####
+# create a tgz archive ignoring some files
+#alias targzc='tar --exclude=".DS_Store" --exclude="*pyc" -zcvf'
+# create a tbz2 archive ignoring some files
+#alias tarbzc='tar --exclude=".DS_Store" --exclude="*pyc" -jcvf'
+# unarchive
+#alias targzx='tar -zxvf'
+#alias tarbzx='tar -xvjf'
+
+# always show all versions of an executable
+#alias whicha="which -a"
+
+# Path to Virtual Machine Library directory
+VM_LIBRARY="$HOME/Documents/Virtual\ Machines.localized"
+# Start up development VM in nogui mode
+alias noguivm="/Library/Application\ Support/VMware\ Fusion/vmrun -T fusion start $VM_LIBRARY/FreeBSD.vmwarevm/FreeBSD.vmx nogui"
+
+# colors!!!
+###########
+
+# for FreeBSD
+# Pretty LSCOLORS explanation:
+# http://www.mjxg.com/index.py/geek/lscolors_and_ls_colors
+#
+# This set works nicely for dark backgrounds...
+#
+#export LSCOLORS="cxgxCxdxbxegedabagacdx"
+
+# for linux
+# Pretty LS_COLORS explanation: 
+# http://www.mjxg.com/index.py/geek/lscolors_and_ls_colors
+#
+# This set works nicely for dark backgrounds...
+#
+#export LS_COLORS="no=00:fi=00:di=32:ln=36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=31:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:"
+
+# set the ACK match color scheme
+export ACK_COLOR_MATCH="red"
+
+# set the grep colors for matching, etc.
+#export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=32:ln=36:bn=32:se=39"
+
+# virtualenv setup
+##################
+
+VIRTUALENVS_DIR=$HOME/.virtualenvs
+# if the virutalenv wrapper is available, then source it
+if [ -d $VIRTUALENVS_DIR ]; then
+    export WORKON_HOME=$VIRTUALENVS_DIR
+    if checkPath virtualenvwrapper_bashrc; then
+        source virtualenvwrapper_bashrc
+    elif checkPath virtualenvwrapper.sh; then
+        source virtualenvwrapper.sh
+    fi
+fi
+
+alias dvm='ssh palendae-vm.local'
+
+hash -d P=~/projects

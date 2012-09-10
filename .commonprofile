@@ -1,0 +1,11 @@
+source $HOME/.commonfuncs
+
+# run the fortune function....and...laugh
+#makeMeLaugh
+
+# only update once a day, according to the weShouldUpdate function
+# update the confs so they are in sync, but only if under
+# subversion control and subversion is available
+if checkPath svn && [ -d $HOME/.dotfiles/.svn ] && weShouldUpdate; then
+    svn up $HOME/.dotfiles
+fi
