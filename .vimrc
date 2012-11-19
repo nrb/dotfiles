@@ -499,12 +499,6 @@ let NERDTreeSortOrder=[]
 let NERDTreeChDirMode=2
 " -----------------------------------------------------------------
 
-" php debugger                                                  {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" turn off the mini buf explorer when using the debugger so the
-" windows get initialized properly
-let g:debuggerMiniBufExpl = 1
-
 " Powerline                                                    {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:Powerline_theme = 'distinguished'
