@@ -456,6 +456,7 @@ let g:lodgeit_url = "https://paste.sixfeetup.com"
 " TODO: Set your username here
 let g:lodgeit_username = "nolan"
 let g:lodgeit_secure = 1
+map <leader>L :Lodgeit<CR>
 
 " Mini buf explorer                                            {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
