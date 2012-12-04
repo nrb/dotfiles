@@ -41,6 +41,7 @@ expected_path=(
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
+  /usr/local/share/python/
   /usr/Programs/bin
   /sbin
   /bin
@@ -124,5 +125,9 @@ if [ $UNAME = "Darwin" ]; then
         export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
     fi
 
+fi
+
+if [ -e '/usr/local/share/python/virtualenvwrapper.sh' ]; then
+    source /usr/local/share/python/virtualenvwrapper.sh
 fi
 
