@@ -607,6 +607,10 @@ if has("autocmd")
     au BufNewFile,BufRead *.js.dtml set filetype=javascript
     " any txt file in a `tests` directory is a doctest
     au BufNewFile,BufRead /*/tests/*.txt set filetype=doctest
+
+
+    " Misc. Files
+    au BufRead,BufNewFile *.fountain set filetype=fountain
 endif
 
 " Cursor and window controls                                   {{{1
