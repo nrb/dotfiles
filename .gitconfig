@@ -27,6 +27,7 @@
 	dfs = diff --staged
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lga = log --graph --pretty=format:'%Cred%h%Creset %Cblue%an%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --branches --remotes
+    branches = branch -a
 [user]
     email = nolan@sixfeetup.com
     name = Nolan Brubaker
