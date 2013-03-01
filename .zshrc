@@ -152,3 +152,5 @@ source $HOME/.zshprompt_simple
 
 # load up per environment extras
 source ~/.zshextras
+
+bindkey "^l" clear-screen

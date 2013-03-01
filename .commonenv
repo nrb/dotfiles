@@ -41,7 +41,8 @@ expected_path=(
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
-  /usr/local/share/python/
+  /usr/local/share/python
+  /usr/local/share/python3
   /usr/Programs/bin
   /sbin
   /bin
@@ -131,3 +132,6 @@ if [ -e '/usr/local/share/python/virtualenvwrapper.sh' ]; then
     source /usr/local/share/python/virtualenvwrapper.sh
 fi
 
+if [ -e '/usr/local/share/python3/virtualenvwrapper.sh' ]; then
+    source /usr/local/share/python3/virtualenvwrapper.sh
+fi
