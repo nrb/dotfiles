@@ -143,6 +143,9 @@ export ACK_COLOR_MATCH="red"
 # set the grep colors for matching, etc.
 #export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=32:ln=36:bn=32:se=39"
 
+# pyramid
+alias bpr='bin/pserve --reload etc/paster.ini'
+
 # virtualenv setup
 ##################
 
