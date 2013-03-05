@@ -161,6 +161,6 @@ if [ -d $VIRTUALENVS_DIR ]; then
 fi
 
 alias dvm='ssh palendae-vm.local'
-alias gti=git
+alias gti='git'
 
 hash -d P=~/projects
