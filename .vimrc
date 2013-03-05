@@ -72,6 +72,7 @@ set nocompatible
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+execute pathogen#infect()
 
 " set the mapleader key
 let mapleader = ","
@@ -608,6 +609,7 @@ if has("autocmd")
     " any txt file in a `tests` directory is a doctest
     au BufNewFile,BufRead /*/tests/*.txt set filetype=doctest
 
+    au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.jinja2 set ft=jinja
 
     " Misc. Files
     au BufRead,BufNewFile *.fountain set filetype=fountain
