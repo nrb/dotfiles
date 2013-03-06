@@ -60,6 +60,7 @@ alias zu='sudo -H -u zope'
 #############
 alias bfg='bin/instance fg'
 #alias bs='bin/control stop'
+alias bb='bin/buildout'
 alias bbN='bin/buildout -N'
 # creating the buildout.cfg
 if [ $UNAME = "FreeBSD" ]; then
