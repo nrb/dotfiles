@@ -163,5 +163,6 @@ fi
 
 alias dvm='ssh palendae-vm.local'
 alias gti='git'
+alias pythong='echo lol; python'
 
 hash -d P=~/projects
