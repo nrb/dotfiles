@@ -154,9 +154,6 @@ set ruler
 " show the statusline in all windows
 set laststatus=2
 
-" highlight the cursor line
-set cursorline
-
 " turn on line numbers, aww yeah
 set number
 "
@@ -262,8 +259,13 @@ function! s:completeColorSchemes(A,L,P)
     return filter(colorscheme_names, 'v:val =~ "^' . a:A . '"')
 endfunction
 
+
 " set the colorscheme
-ColorSwitcher g:dark_theme
+if hostname() == 'Nolans-MacBook-Pro.local'
+    set background=light
+else
+    set background=dark
+endif
 
 " switch between light and dark colors
 map <silent> <leader>c :ColorSwitcher<CR>
