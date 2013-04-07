@@ -1,7 +1,7 @@
 [core]
     editor = vim
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 [color]
 	ui = auto
 [color "branch"]
@@ -24,7 +24,7 @@
 	br = branch
 	co = checkout
 	df = diff
-	dfs = diff --staged
+	dfs = !git --no-pager diff --stat
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lga = log --graph --pretty=format:'%Cred%h%Creset %Cblue%an%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --branches --remotes
     branches = branch -a
@@ -33,3 +33,10 @@
     name = Nolan Brubaker
 [merge]
     tool = vimdiff
+[diff]
+    mnemonicprefix = true
+    renames = copies
+[branch]
+    autosetupmerge = true
+[push]
+    default = tracking
