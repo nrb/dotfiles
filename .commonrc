@@ -12,10 +12,6 @@ else
     alias vim=vi
 fi
 
-# shortcut for long descrip checking
-alias py_long_descrip="python2.4 setup.py --long-description"
-# use cat to show the file
-alias descrip_check="py_long_descrip > /tmp/package.rst && rst2html.py /tmp/package.rst /tmp/package.html && cat -n /tmp/package.rst"
 
 # some OS X specific stuff
 ##########################
@@ -53,23 +49,6 @@ alias psg='psa | grep -i'
 #alias svnpsi="svn propset svn:ignore -F IGNORE.txt ."
 export SVN_EDITOR=vim
 
-# zope runs most QA/Staging instances...
-alias zu='sudo -H -u zope'
-
-# buildout...
-#############
-alias bfg='bin/instance fg'
-#alias bs='bin/control stop'
-alias bb='bin/buildout'
-alias bbN='bin/buildout -N'
-# creating the buildout.cfg
-if [ $UNAME = "FreeBSD" ]; then
-    alias bcl='cp profiles/buildout.cfg.tmpl buildout.cfg && sed -I "" -e "s/#\(    profiles\/local\.cfg\)/\1/" buildout.cfg'
-else
-    alias bcl='cp profiles/buildout.cfg.tmpl buildout.cfg && sed -i "" -e "s/#\(    profiles\/local\.cfg\)/\1/" buildout.cfg'
-fi
-
-
 # pep8 that can scan a `src` dir
 alias pep8scan="pep8 --repeat --show-source --statistics --exclude=paste"
 
@@ -84,8 +63,6 @@ if [ $UNAME = "FreeBSD" ] || [ $UNAME = "Darwin" ]; then
    alias ls="ls -F"
 elif [ $UNAME = "Linux" ]; then
    alias ls="ls --color=auto -F"
-elif [ $UNAME = 'SunOS' ]; then
-   alias ls="ls --color=always -F"
 fi
 
 # show me everything
@@ -100,24 +77,6 @@ alias lsa='ll -H'
 #alias lsd='lsa -d'
 # list all dot files
 #alias lsdot='lsd .*'
-
-# tar
-#####
-# create a tgz archive ignoring some files
-#alias targzc='tar --exclude=".DS_Store" --exclude="*pyc" -zcvf'
-# create a tbz2 archive ignoring some files
-#alias tarbzc='tar --exclude=".DS_Store" --exclude="*pyc" -jcvf'
-# unarchive
-#alias targzx='tar -zxvf'
-#alias tarbzx='tar -xvjf'
-
-# always show all versions of an executable
-#alias whicha="which -a"
-
-# Path to Virtual Machine Library directory
-VM_LIBRARY="$HOME/Documents/Virtual\ Machines.localized"
-# Start up development VM in nogui mode
-alias noguivm="/Library/Application\ Support/VMware\ Fusion/vmrun -T fusion start $VM_LIBRARY/FreeBSD.vmwarevm/FreeBSD.vmx nogui"
 
 # colors!!!
 ###########
