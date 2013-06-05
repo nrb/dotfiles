@@ -166,3 +166,5 @@ alias gti='git'
 alias pythong='echo lol; python'
 
 hash -d P=~/projects
+hash -d V=~/moreau/precise64
+hash -d C=~/devel/cms_dev
