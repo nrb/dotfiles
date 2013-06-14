@@ -30,7 +30,7 @@
     branches = branch -a
     last = log -1
 [user]
-    email = nolan@sixfeetup.com
+    email = nolan@nbrubaker.com
     name = Nolan Brubaker
 [merge]
     tool = vimdiff
