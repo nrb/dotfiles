@@ -131,3 +131,5 @@ fi
 hash -d P=~/projects
 hash -d V=~/moreau/precise64
 hash -d C=~/devel/cms_dev
+hash -d E=~/devel/cms_dev/ellington
+hash -d S=~/devel/cms_dev/storyville
