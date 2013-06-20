@@ -1,12 +1,20 @@
 session:
     name: "dev"
     windows:
-        - name: "medley vm"
+        - name: "vagrant kick off"
           clear: "true"
           root: "~V"
           filters:
             before:
                 - "vagrant up"
+          panes:
+            - cmd: "pwd"
+              height: 100
+              width: 100
+        - name: "medley vm"
+          clear: "true"
+          root: "~V"
+          filters:
             after:
                 - "vagrant ssh"
           layout: a089,166x40,0,0[166x20,0,0,0,166x19,0,21{83x19,0,21,22,82x19,84,21,23}]
