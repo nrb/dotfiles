@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [ -f /usr/bin/apt-get ]; then
+    apt-get -y install zsh ack-grep git-core
+fi
+if [ ! -d /home/vagrant/.dotfiles ]; then
+    # Stuff that relies on permissions must be done by the vagrant user.
+    su -c "git clone https://github.com/nrb/dotfiles /home/vagrant/.dotfiles" vagrant
+    su -c "cd /home/vagrant/ && .dotfiles/create_links.sh unlink && .dotfiles/create_links.sh" vagrant
+    # Changing the shell needs a password, but the default is just vagrant.
+    su -c "echo vagrant | chsh -s /bin/zsh" vagrant
+fi

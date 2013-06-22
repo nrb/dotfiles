@@ -92,7 +92,7 @@ zstyle ':completion:*:history-words' menu yes
 # vi command line editor
 ########################
 # TODO: Un-comment the following line to have vi style keybindings
-#bindkey -v
+bindkey -v
 # use home and end to go to end and beginning of the line
 bindkey -M viins '^A' vi-beginning-of-line
 bindkey -M viins '^E' vi-end-of-line
