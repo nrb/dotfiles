@@ -261,7 +261,7 @@ endfunction
 
 
 " set the colorscheme
-if hostname() == 'Nolans-MacBook-Pro.local'
+if hostname() == "Nolans-MacBook-Pro.local"
     call s:colorSwitch(g:light_theme)
 else
     call s:colorSwitch(g:dark_theme)
