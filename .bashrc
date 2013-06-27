@@ -65,3 +65,5 @@ PS1="$PR_IMPOSTER\n\d \A | \w\n\h\$ "
 source ~/.bash_extras
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+bind -x '"\C-l": clear;'
