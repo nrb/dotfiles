@@ -156,6 +156,10 @@ set laststatus=2
 
 " turn on line numbers, aww yeah
 set number
+" Use raw line numbers on insert, relative in normal mode.
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 "
 " By default, vim doesn't let the cursor stray beyond the defined text. This 
 " setting allows the cursor to freely roam anywhere it likes in command mode.
