@@ -76,7 +76,7 @@ do
   fi
 done
 
-PATH=$new_path
+PATH=$PATH:$new_path
 export PATH
 
 # Enable a few things for less (This will also apply to man)
