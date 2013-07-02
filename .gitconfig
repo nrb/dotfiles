@@ -29,6 +29,7 @@
     lga = log --graph --pretty=format:'%Cred%h%Creset %Cblue%an%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --branches --remotes
     branches = branch -a
     last = log -1
+    remotes = remote -v
 [user]
     email = nolan@nbrubaker.com
     name = Nolan Brubaker
