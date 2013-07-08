@@ -53,10 +53,6 @@ expected_path=(
   /usr/libexec
   /Developer/Tools
   /opt/ruby1.8/bin
-  /usr/X11R6/bin
-  /usr/X11/bin
-  /usr/bin/X11
-  /usr/local/X11/bin
   /usr/local/contrib/lib/kde/bin
   /usr/local/tex/bin
   /usr/local/lib/zsh/scr
@@ -76,7 +72,7 @@ do
   fi
 done
 
-PATH=$PATH:$new_path
+PATH=$new_path:$PATH
 export PATH
 
 # Enable a few things for less (This will also apply to man)
