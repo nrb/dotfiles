@@ -81,8 +81,6 @@ export PATH
 #   * show colors instead of escape characters (-R)
 export LESS="-IMR"
 
-# use the SFU package server for FreeBSD
-#export PACKAGESITE=http://sfuppkg01.sixfeetup.com/FreeBSD/8.0/packages/All/
 
 # conditionally set the editor variable
 if checkPath mate_wait; then

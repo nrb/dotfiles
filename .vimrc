@@ -586,30 +586,12 @@ let g:loaded_delimitMate = 1
 " -----------------------------------------------------------------
 
 if has("autocmd")
-    " automatically use the wiki text for trac.sixfeetup.com when
-    " using it's all text
-    au BufNewFile,BufRead trac.sixfeetup.com.*.txt set syntax=wiki
-
     " shell files
     au BufNewFile,BufRead .common* set filetype=sh
 
     " Vagrant files
     au BufNewFile,BufRead Vagrantfile set filetype=ruby
 
-    " Zope and Plone files
-    " -----------------------------------------------------------------
-    " Zope Page Templates
-    au BufNewFile,BufRead *.pt,*.cpt,*.zpt set filetype=zpt syntax=xml
-    " xml syntax for zcml files
-    au BufNewFile,BufRead *.zcml set filetype=zcml syntax=xml
-    " css.dtml as css
-    au BufNewFile,BufRead *.css.dtml set filetype=css
-    " kss files as css
-    au BufNewFile,BufRead *.kss set filetype=css syntax=kss
-    " js.dtml as javascript
-    au BufNewFile,BufRead *.js.dtml set filetype=javascript
-    " any txt file in a `tests` directory is a doctest
-    au BufNewFile,BufRead /*/tests/*.txt set filetype=doctest
 
     au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.jinja2 set ft=jinja
 
