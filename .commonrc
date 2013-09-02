@@ -120,16 +120,9 @@ if [ -d $VIRTUALENVS_DIR ]; then
     fi
 fi
 
-alias dvm='ssh palendae-vm.local'
 alias gti='git'
 alias pythong='echo lol; python'
 
 if [ $UNAME = "Linux" ]; then
     alias ack="ack-grep"
 fi
-
-hash -d P=~/projects
-hash -d V=~/moreau/precise64
-hash -d C=~/devel/cms_dev
-hash -d E=~/devel/cms_dev/src/ellington
-hash -d S=~/devel/cms_dev/src/storyville
