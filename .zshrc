@@ -19,7 +19,7 @@ if [ $UNAME = "Darwin" ]; then
     hash -d A=~/moreau/devel/cms_dev/src/adgeletti
     hash -d M=~/moreau/devel/cms_dev/medley-templates
 
-else [ $UNAME = "Linux" ]; then
+elif [ $UNAME = "Linux" ]; then
     hash -d C=~/devel/cms_dev
     hash -d E=~/devel/cms_dev/src/ellington
     hash -d S=~/devel/cms_dev/src/storyville
