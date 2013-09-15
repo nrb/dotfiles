@@ -568,6 +568,14 @@ let g:tagbar_type_markdown = {
 " Delete buffers when i'm done with them in VCSCommand
 let VCSCommandDeleteOnHide = 1
 
+" Flake8                                                       {{{2
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Don't worry about line length
+let g:flake8_max_line_length=110
+
+let g:flake8_cmd="/usr/local/share/python/flake8"
+
 " Yankring                                                     {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Show and hide the yankring history
