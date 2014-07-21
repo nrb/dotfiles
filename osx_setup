@@ -37,16 +37,21 @@ function installPrograms() {
 # A nice defaults command reference:
 # http://rixstep.com/2/20060901,00.shtml
 function configureDock() {
-    # Dock to 2D
+    echo "! Dock to 2D"
     defaults write com.apple.dock no-glass -boolean YES
-    # Dock to bottom corner
+    echo "! Dock to bottom corner"
     defaults write com.apple.dock pinning -string end
-    # Dim 'hidden' apps
-    defaults write com.apple.dock showhidden ibool true
-    # Use the scale effect to minimize
+    echo "! Use the scale effect to minimize"
     defaults write com.apple.dock mineffect scale
-    # Put dock on the right of the screen.
+    echo "! Put dock on the right of the screen."
     defaults write com.apple.dock orientation -string right;
+    if [[ $(defaults read com.apple.dock magnification 2> /dev/null) == 0 ]]
+    then
+        echo "! Turn off dock zoom"
+        defaults delete com.apple.dock magnification;
+    fi
+    echo "! Restarting Dock"
+    killall Dock;
 }
 
 
@@ -59,6 +64,7 @@ function main() {
     installDevTools
     installHomebrew
     installPrograms
+    configureDock
 }
 
 main "$@"
