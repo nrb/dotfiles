@@ -50,8 +50,37 @@ function configureDock() {
         echo "! Turn off dock zoom"
         defaults delete com.apple.dock magnification;
     fi
+    echo "! Show indicator lights in the dock"
+    defaults write com.apple.dock show-process-indicators -bool true
+    echo "! Disable dock launch animation"
+    defaults write com.apple.dock launchanim -bool false
+    echo "! Automatically show/hide the dock"
+    defaults write com.apple.dock autohide -bool true
     echo "! Restarting Dock"
+    echo "! Setting bottom left corner to start screen saver."
+    defaults write com.apple.dock wvous-bl-corner -int 5
+    defaults write com.apple.dock wvous-bl-modifier -int 0
     killall Dock;
+}
+
+function configureFinder() {
+    echo "! Set home dir as default path for new windows."
+    defaults write com.apple.finder NewWindowTarget -string "PfLo"
+    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+    echo "! Hiding media from the desktop"
+    defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+    defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+    defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+    echo "! Showing full posix path in Finder window title."
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+    echo "! Disabling .DS_Store files on network volumes."
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+    echo "! Empty Trash securely by default"
+    defaults write com.apple.finder EmptyTrashSecurely -bool true
+    echo "! Showing the ~/Library"
+    chflags nohidden ~/Library
+    killall Finder;
 }
 
 
@@ -65,6 +94,9 @@ function main() {
     installHomebrew
     installPrograms
     configureDock
+    configureFinder
+    echo "! Setting timezone (sudo)"
+    sudo systemsetup -settimezone "America/New York" > /dev/null
 }
 
 main "$@"
