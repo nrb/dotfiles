@@ -70,6 +70,9 @@ Here is a list of all the files and a brief explanation of what they do.
 >    It contains an array of all the conf files that need to be symlinked.  It
 >    will give you some feed back as to what it's linked and what was 'in the way'.
 
+`osx_setup`
+>    A shell script that configures OS X preferences, and installs programs from Homebrew
+
 Usage in the wild
 -----------------
 
