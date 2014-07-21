@@ -1,0 +1,7 @@
+python
+ruby
+ack
+vim
+tmux
+zsh
+git

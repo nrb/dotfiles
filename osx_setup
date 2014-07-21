@@ -1,0 +1,64 @@
+#/usr/bin/env bash
+# vi: set syn=sh :
+
+# Sets up an OS X workstation how I like it.
+
+function installDevTools() {
+    echo "!! Installing XCode command line tools"
+    xcode-select --install;
+}
+
+function installHomebrew() {
+    if [ -e /usr/local/bin/brew ]
+    then
+        return
+    fi
+    echo "!! Installing Homebrew"
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    brew doctor
+)
+
+function installPrograms() {
+    echo "!! Installing preferred programs"
+    local programs=$(cat osx_deps.txt)
+    local brew_installed=$(brew list)
+    for program in $programs
+    do
+        if [[ "$brew_installed" =~ "$program" ]]
+        then
+            echo "!!! $program already installed, skipping"
+            continue
+        fi
+        echo "!!! Installing $program"
+        brew install $program
+    done;
+}
+
+# A nice defaults command reference:
+# http://rixstep.com/2/20060901,00.shtml
+function configureDock() {
+    # Dock to 2D
+    defaults write com.apple.dock no-glass -boolean YES
+    # Dock to bottom corner
+    defaults write com.apple.dock pinning -string end
+    # Dim 'hidden' apps
+    defaults write com.apple.dock showhidden ibool true
+    # Use the scale effect to minimize
+    defaults write com.apple.dock mineffect scale
+    # Put dock on the right of the screen.
+    defaults write com.apple.dock orientation -string right;
+}
+
+
+function main() {
+    if ! [[ "$OSTYPE" =~ ^darwin ]];
+    then
+        echo "ERROR: This script must be run under OS X."
+        exit 1
+    fi
+    installDevTools
+    installHomebrew
+    installPrograms
+}
+
+main "$@"
