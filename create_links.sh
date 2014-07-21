@@ -78,21 +78,6 @@ for actual_dotfile in $HOME/.dotfiles/.*
 #       aren't under version control.
 ###################################################################
 
-# take care of the .subversion/config file
-# -----------------------------------------------------------------
-actual_dotfile="$dotfiles_loc/config"
-dotfile="config"
-to_create="$HOME/.subversion/$dotfile"
-# actually create/remove the link
-linkDotfile $dotfile $to_create $actual_dotfile
-
-# take care of the .subversion/servers file
-# -----------------------------------------------------------------
-actual_dotfile="$dotfiles_loc/servers"
-dotfile="servers"
-to_create="$HOME/.subversion/$dotfile"
-# actually create/remove the link
-linkDotfile $dotfile $to_create $actual_dotfile
 
 actual_dotfile="$dotfiles_loc/.vagrant.d/Vagrantfile"
 dotfile="Vagrantfile"
