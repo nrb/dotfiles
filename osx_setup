@@ -4,8 +4,15 @@
 # Sets up an OS X workstation how I like it.
 
 function installDevTools() {
+    if [[ -e $(xcode-select --print-path) ]]
+    then
+        echo "!! XCode command line tools already present."
+        return
+    fi
     echo "!! Installing XCode command line tools"
     xcode-select --install;
+    echo "!! Sleeping for 10 minutes to allow XCode to install."
+    sleep 10 m;
 }
 
 function installHomebrew() {
