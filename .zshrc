@@ -4,28 +4,13 @@ source $HOME/.commonfuncs
 # Common hashes
 #hash -d L=/var/log
 #hash -d R=/usr/local/etc/rc.d
+hash -d P=~/projects
 
 # OS X specific settings
 if [ $UNAME = "Darwin" ]; then
     
-    # set up dir hashes
-    #hash -d P=$HOME/sixfeetup/projects
-    #hash -d S=$HOME/Sites
-    hash -d P=~/projects
-    hash -d V=~/moreau/
-    hash -d C=~/moreau/devel/cms_dev
-    hash -d E=~/moreau/devel/cms_dev/src/ellington
-    hash -d S=~/moreau/devel/cms_dev/src/storyville
-    hash -d A=~/moreau/devel/cms_dev/src/adgeletti
-    hash -d M=~/moreau/devel/cms_dev/medley-templates
 
 elif [ $UNAME = "Linux" ]; then
-    hash -d C=~/devel/cms_dev
-    hash -d E=~/devel/cms_dev/src/ellington
-    hash -d S=~/devel/cms_dev/src/storyville
-    hash -d A=~/devel/cms_dev/src/adgeletti
-    hash -d M=~/devel/cms_dev/medley-templates
-
 
 fi
 
