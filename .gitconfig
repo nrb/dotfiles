@@ -42,3 +42,5 @@
     autosetupmerge = true
 [push]
     default = tracking
+[gitreview]
+	username = nrb
