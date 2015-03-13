@@ -6,14 +6,6 @@ source $HOME/.commonfuncs
 #hash -d R=/usr/local/etc/rc.d
 hash -d P=~/projects
 
-# OS X specific settings
-if [ $UNAME = "Darwin" ]; then
-    
-
-elif [ $UNAME = "Linux" ]; then
-
-fi
-
 # set up common aliases between shells
 source $HOME/.commonrc
 
