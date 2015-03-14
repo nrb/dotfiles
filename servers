@@ -1,3 +1,0 @@
-[global]
-# stop that annoying message about storing plain text passwords
-store-plaintext-passwords = no
