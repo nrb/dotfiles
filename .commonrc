@@ -130,3 +130,9 @@ fi
 if [ -e "$HOME/.openrc" ]; then
     source $HOME/.openrc
 fi
+
+
+if [[ $UNAME == "Linux" ]]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
