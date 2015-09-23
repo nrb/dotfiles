@@ -5,7 +5,7 @@ source $HOME/.commonfuncs
 #hash -d L=/var/log
 #hash -d R=/usr/local/etc/rc.d
 hash -d P=~/projects
-hash -d O=~/projects/os-ansible-deployment
+hash -d O=~/projects/openstack-ansible
 hash -d R=~/projects/rpc-openstack
 
 # set up common aliases between shells
