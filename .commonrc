@@ -1,4 +1,4 @@
-UNAME=$(uname)
+UAME=$(uname)
 source $HOME/.commonfuncs
 
 # re link all the conf files
@@ -123,9 +123,6 @@ fi
 alias gti='git'
 alias pythong='echo lol; python'
 
-if [ $UNAME = "Linux" ]; then
-    alias ack="ack-grep"
-fi
 
 if [ -e "$HOME/.openrc" ]; then
     source $HOME/.openrc
