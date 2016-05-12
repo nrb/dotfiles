@@ -128,3 +128,7 @@ fi
 if [ -e '/usr/local/share/python3/virtualenvwrapper.sh' ]; then
     source /usr/local/share/python3/virtualenvwrapper.sh
 fi
+
+if [ -e '/usr/bin/virtualenvwrapper.sh' ]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
