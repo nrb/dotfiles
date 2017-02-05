@@ -10,34 +10,8 @@ new_path=""
 expected_path=(
   "$HOME/bin/$MACHTYPE-$OSTYPE"
   "$HOME/bin"
-  "$HOME/bin/git_achievements"
   "$HOME/.gem/ruby/1.8/bin"
-  /opt/local/apache2/bin
-  /opt/python/bin
-  /opt/python-build/python-2.7/bin
-  /opt/python-build/python-2.6/bin
-  /opt/python-build/python-2.5/bin
-  /opt/python-build/python-2.4/bin
-  /opt/local/bin
-  /opt/local/sbin
-  /opt/local/lib/postgresql91/bin
-  /opt/local/lib/postgresql90/bin
-  /opt/local/lib/postgresql83/bin
-  /opt/local/lib/mysql55/bin
-  /opt/local/lib/mysql5/bin
-  /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
-  /opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin
-  /opt/local/Library/Frameworks/Python.framework/Versions/2.5/bin
-  /opt/local/Library/Frameworks/Python.framework/Versions/2.4/bin
-  /sw/bin
-  /sw/sbin
-  /usr/bin/perlbin/site
-  /usr/bin/perlbin/vendor
-  /usr/bin/perlbin/core
   /usr/local/Cellar/python/2.7/bin
-  /usr/local/Cellar/python/2.6/bin
-  /usr/local/Cellar/python/2.5/bin
-  /usr/local/Cellar/python/2.4/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
