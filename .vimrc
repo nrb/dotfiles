@@ -405,57 +405,6 @@ filetype plugin indent on  " enables filetype specific plugins
 " shortcut for ack search
 map <leader>a :Ack!<Space>
 
-" CtrlP                                                        {{{2
-" " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" use my normal mapping
-let g:ctrlp_map = '<leader>t'
-
-" load ctrlp extensions
-let g:ctrlp_extensions = ['tag']
-
-" search by filename
-let g:ctrlp_by_filename = 1
-
-" working path setup
-let g:ctrlp_root_markers = ['bootstrap.py', 'buildout.cfg']
-" The above won't work with the omelette since it will open items
-" that are symlinked in other directories.
-let g:ctrlp_working_path_mode = 0
-
-" ctrlp caching
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-
-" follow symlinks
-let g:ctrlp_follow_symlinks = 1
-
-" unlimited amount of files
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 100
-
-" show more items by default
-let g:ctrlp_max_height = 50
-
-" Only update the search after 1 second
-let g:ctrlp_lazy_update = 1000
-
-" Use the CtrlPTag mode
-nmap <leader>ft :CtrlPTag<CR>
-
-" Fuzzy Finder                                                 {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" max results, lot o' files in a buildout :)
-let g:fuzzy_ceiling=35000
-" show full paths
-let g:fuzzy_path_display = 'highlighted_path'
-" ignored files
-let g:fuzzy_ignore = "*.png;*.PNG;*.pyc;*.pyo;*.JPG;*.jpg;*.GIF;*.gif;.svn/**;.git/**;*.mo;.DS_Store;.AppleDouble"
-" FuzzyFinder coverage file mode (like textmate file finder)
-"map <leader>t :FufCoverageFile<Space>
-" Search for a tag with fuzzyFinder
-"nmap <leader>ft :FufTag<Space>
 
 " Dpaste                                                      {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
