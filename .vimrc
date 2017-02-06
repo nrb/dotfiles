@@ -527,6 +527,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Better buffer controls
 " Open a new empty buffer
 nmap <leader>T :enew<cr>
+nmap <leader>n :enew<cr>
 
 nmap <leader>l :bnext<cr>
 
