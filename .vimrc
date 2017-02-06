@@ -21,7 +21,7 @@
 "    <leader>a       -- starts an ack search in the CWD
 "    <leader>f       -- shows the current file in the NERDTree. This
 "                       is the TextMate equivalent of ctrl+cmd+r
-"    <leader>T       -- Run tidy xml on the current file
+"    <leader>T       -- Open new buffer
 "    <leader>i       -- toggles invisible characters
 "    <leader>\       -- toggle line wrapping
 "    <leader>y       -- show the yankring
@@ -364,22 +364,6 @@ command! -nargs=0 MarkdownToHTMLCopy  !Markdown.pl "%" | pbcopy
 " use pandoc to convert from html into markdown
 command! -nargs=0 MarkdownFromHTML  %!pandoc -f html -t markdown "%"
 
-" Tidy                                                         {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" xml tidy
-command! -complete=file -nargs=* TidyXML call s:TidyXML()
-map <silent> <leader>T :TidyXML<CR>
-
-function! s:TidyXML()
-    " Preparation: save last search, and cursor position.
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %!tidy -xml -i -q -w 0
-    " Clean up cursor position
-    call cursor(l, c)
-endfunction
 
 " Open a buffer number in a vertical split                     {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -410,15 +394,6 @@ map <leader>a :Ack!<Space>
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 map <leader>L :Dpaste<CR>
 
-" Mini buf explorer                                            {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" single click open of a buffer
-let g:miniBufExplUseSingleClick = 1
-" use ctrl + tab to cycle through tabs
-let g:miniBufExplMapCTabSwitchBufs = 1
-" better window management
-let g:miniBufExplModSelTarget = 1
 
 " NERDTree                                                     {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -574,10 +549,26 @@ if has("gui_running")
 
 endif
 
-" turn on folds
-" vim: fdm=marker
-
 " vim-airline                                                  {{{1
 " -----------------------------------------------------------------
 " Disable ctags support.
 let g:airline#extensions#tagbar#enabled = 0
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+ let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Buffer shortcuts                                              {{{1
+" -----------------------------------------------------------------
+" Better buffer controls
+" Open a new empty buffer
+nmap <leader>T :enew<cr>
+
+nmap <leader>l :bnext<cr>
+
+nmap <leader>h :bprevious<cr>
+
+" turn on folds (must be the last lines in the file)
+" vim: fdm=marker
