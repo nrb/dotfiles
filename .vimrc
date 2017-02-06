@@ -19,14 +19,10 @@
 "    <leader>h       -- toggles the highlight search
 "    <leader>n       -- toggles the line numbers
 "    <leader>a       -- starts an ack search in the CWD
-"    <leader>f       -- shows the current file in the NERDTree. This
-"                       is the TextMate equivalent of ctrl+cmd+r
 "    <leader>T       -- Open new buffer
 "    <leader>i       -- toggles invisible characters
 "    <leader>\       -- toggle line wrapping
 "    <leader>y       -- show the yankring
-"    <leader>x       -- toggles NERDTree drawer
-"    <leader>b       -- shortcut for getting to NERDTree bookmarks
 "    <leader><Enter> -- opens a line at the current column (this is
 "                       the reverse of J)
 "    <leader>c       -- Switch between light and dark colors
@@ -395,41 +391,7 @@ map <leader>a :Ack!<Space>
 map <leader>L :Dpaste<CR>
 
 
-" NERDTree                                                     {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" set project folder to x
-map <leader>x :NERDTreeToggle<CR>
-map <leader>b :NERDTreeFromBookmark<Space>
-nnoremap <silent> <leader>f :NERDTreeFind<CR>
-" files/dirs to ignore in NERDTree (mostly the same as my svn ignores)
-let NERDTreeIgnore=[
-    \'\~$',
-    \'\.pt.cache$',
-    \'\.Python$',
-    \'\.svn$',
-    \'\.git*$',
-    \'\.pyc$',
-    \'\.pyo$',
-    \'\.mo$',
-    \'\.o$',
-    \'\.lo$',
-    \'\.la$',
-    \'\..*.rej$',
-    \'\.rej$',
-    \'\.\~lock.*#$',
-    \'\.AppleDouble$',
-    \'\.pt.py$',
-    \'\.DS_Store$']
-" set the sort order to alphabetical
-let NERDTreeSortOrder=[]
-" when the root is changed, change Vim's working dir
-let NERDTreeChDirMode=2
-" -----------------------------------------------------------------
-
-" Powerline                                                    {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:Powerline_theme = 'distinguished'
 
 " syntastic                                                    {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
