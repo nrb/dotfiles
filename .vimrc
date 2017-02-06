@@ -529,9 +529,12 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <leader>T :enew<cr>
 nmap <leader>n :enew<cr>
 
+" Move back and forth.
 nmap <leader>l :bnext<cr>
-
 nmap <leader>h :bprevious<cr>
+
+" List all buffers
+nmap <leader>b :buffers<cr>
 
 " turn on folds (must be the last lines in the file)
 " vim: fdm=marker
