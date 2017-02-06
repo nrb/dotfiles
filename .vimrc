@@ -463,60 +463,6 @@ let g:syntastic_enable_signs=1
 " Automatically open the location list when there are errors
 let g:syntastic_auto_loc_list=0
 
-" Tagbar                                                       {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nnoremap tt :TagbarToggle<CR>
-
-let g:tagbar_sort = 0
-
-" always jump into the tagbar pane when it is opened
-let g:tagbar_autofocus = 1
-
-" ZCML type
-let g:tagbar_type_zcml = {
-    \ 'ctagstype': 'zcml',
-    \ 'kinds': [
-        \ 'n:name',
-        \ 'f:for',
-        \ 'g:profile',
-        \ 'p:permission',
-        \ 'h:handler',
-        \ 'm:component',
-        \ 'f:factory',
-        \ 'c:class',
-        \ 'i:id',
-        \ 'v:view',
-        \ 's:schema',
-        \ 'c:controller',
-        \ 't:type',
-        \ 'w:workflow'
-    \ ]
-\}
-" cfg file type
-let g:tagbar_type_cfg = {
-    \ 'ctagstype': 'ini',
-    \ 'kinds': ['s:section']
-\ }
-" Markdown type
-let g:tagbar_type_markdown = {
-    \ 'ctagstype': 'markdown',
-    \ 'kinds': [
-          \ '1:header1',
-          \ '2:header2',
-          \ '3:header3',
-          \ '4:header4',
-          \ '5:header5',
-          \ '6:header6',
-          \ '7:header7'
-    \ ]
-\ }
-
-" VCSCommand                                                   {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Delete buffers when i'm done with them in VCSCommand
-let VCSCommandDeleteOnHide = 1
-
 " Flake8                                                       {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -630,3 +576,8 @@ endif
 
 " turn on folds
 " vim: fdm=marker
+
+" vim-airline                                                  {{{1
+" -----------------------------------------------------------------
+" Disable ctags support.
+let g:airline#extensions#tagbar#enabled = 0
