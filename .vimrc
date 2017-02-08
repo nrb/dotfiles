@@ -527,11 +527,13 @@ let g:airline#extensions#tabline#enabled = 1
 " Better buffer controls
 " Open a new empty buffer
 nmap <leader>T :enew<cr>
-nmap <leader>n :enew<cr>
 
-" Move back and forth.
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
+nmap <leader>n :bnext<cr>
+nmap <leader>p :bprevious<cr>
+
+" Remap ^z to suspend the session, the redraw on resume. Should fix drawing
+" issues in tmux and doing ^z/fg
+noremap ^z :suspend<bar>:redraw!<cr>
 
 " List all buffers
 nmap <leader>b :buffers<cr>
