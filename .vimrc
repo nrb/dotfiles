@@ -527,11 +527,13 @@ let g:airline#extensions#tabline#enabled = 1
 " Better buffer controls
 " Open a new empty buffer
 nmap <leader>T :enew<cr>
-nmap <leader>n :enew<cr>
 
-nmap <leader>l :bnext<cr>
+nmap <leader>n :bnext<cr>
+nmap <leader>p :bprevious<cr>
 
-nmap <leader>h :bprevious<cr>
+" Remap ^z to suspend the session, the redraw on resume. Should fix drawing
+" issues in tmux and doing ^z/fg
+noremap ^z :suspend<bar>:redraw!<cr>
 
 " turn on folds (must be the last lines in the file)
 " vim: fdm=marker
