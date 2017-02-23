@@ -93,7 +93,12 @@ if [ $UNAME = "Darwin" ]; then
         export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
     fi
 
+    export VIRTUALENV_WRAPPER
+
 fi
+
+# Ensure the path is set up so that OS X can find the right python
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 if [ -e '/usr/local/share/python/virtualenvwrapper.sh' ]; then
     source /usr/local/share/python/virtualenvwrapper.sh
