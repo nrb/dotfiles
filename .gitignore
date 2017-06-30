@@ -25,3 +25,4 @@ svn-commit.tmp
 *.pt.py
 __pycache__/
 openstack-ansible/roles/
+.direnv
