@@ -24,3 +24,4 @@ svn-commit.tmp
 .AppleDouble
 *.pt.py
 __pycache__/
+openstack-ansible/roles/
