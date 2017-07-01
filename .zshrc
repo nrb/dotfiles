@@ -7,6 +7,7 @@ source $HOME/.commonfuncs
 hash -d P=~/projects
 hash -d O=~/projects/openstack-ansible
 hash -d R=~/projects/rpc-openstack
+hash -d B=~/projects/openstack-ansible-ops/bowling_ball
 
 # set up common aliases between shells
 source $HOME/.commonrc

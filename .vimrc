@@ -26,6 +26,8 @@
 "    <leader><Enter> -- opens a line at the current column (this is
 "                       the reverse of J)
 "    <leader>c       -- Switch between light and dark colors
+"    <leader>n       -- Switch to next buffer
+"    <leader>p       -- Switch to previous buffer
 "    jj              -- alternative to <ESC>
 "    ;               -- alternative to :
 "    ctrl + tab      -- cycle through buffers/tabs
@@ -391,8 +393,6 @@ map <leader>a :Ack!<Space>
 map <leader>L :Dpaste<CR>
 
 
-
-
 " syntastic                                                    {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Enable signs support to visually see where errors/warnings appear
@@ -522,7 +522,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
  let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Buffer shortcuts                                              {{{1
+" Buffer shortcuts                                             {{{1
 " -----------------------------------------------------------------
 " Better buffer controls
 " Open a new empty buffer
