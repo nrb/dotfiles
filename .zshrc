@@ -4,10 +4,6 @@ source $HOME/.commonfuncs
 # Common hashes
 #hash -d L=/var/log
 #hash -d R=/usr/local/etc/rc.d
-hash -d P=~/projects
-hash -d O=~/projects/openstack-ansible
-hash -d R=~/projects/rpc-openstack
-hash -d B=~/projects/openstack-ansible-ops/bowling_ball
 
 # set up common aliases between shells
 source $HOME/.commonrc
