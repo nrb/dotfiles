@@ -9,15 +9,6 @@
 # Ack Type Settings
 ####################################################################
 
-# add some more zope files to the plone type
---type-add=plone=.zcml,.props,.dtml,.vpy,.kss
---type-add=python=.cpy,.vpy
-# add specific type for page templates
---type-set=zpt=.pt,.cpt
-# add .cfg for buildout files
---type-set=buildout=.cfg
-# add a specific type for ZCML files
---type-set=zcml=.zcml
 # add markdown, textile, and reStructuredText
 --type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
 # plain text CSV files
@@ -27,3 +18,5 @@
 
 # types to ignore by default
 --nogettext
+
+--ignore-dir=.tox
