@@ -12,6 +12,4 @@ au BufWinEnter,BufEnter *.{v,c,}py let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1
 autocmd BufWritePre *.{v,c,}py :call StripTrailingWhitespaces()
 
 " run pep8 on the current file
-map <leader>p :Shell pep8 --repeat --show-source %<CR>
-" run pep8 on the src dir
-map <leader>o :Shell pep8 --repeat --show-source --exclude=paste src<CR>
+map <leader>c :Shell pep8 --repeat --show-source %<CR>
