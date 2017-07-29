@@ -145,3 +145,5 @@ source $HOME/.zshprompt_simple
 source ~/.zshextras
 
 bindkey "^l" clear-screen
+
+eval "$(direnv hook zsh)"
