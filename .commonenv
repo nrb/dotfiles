@@ -8,13 +8,12 @@ source $HOME/.commonfuncs
 # like the one in .zshenv
 new_path=""
 expected_path=(
-  "$HOME/bin/$MACHTYPE-$OSTYPE"
   "$HOME/bin"
-  "$HOME/.gem/ruby/1.8/bin"
-  /usr/local/Cellar/python/2.7/bin
+  "$HOME/.cargo/bin"
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
+  /usr/local/Cellar/python/2.7/bin
   /usr/local/share/python
   /usr/local/share/python3
   /usr/Programs/bin
@@ -26,13 +25,6 @@ expected_path=(
   /usr/bsd
   /usr/libexec
   /Developer/Tools
-  /opt/ruby1.8/bin
-  /usr/local/contrib/lib/kde/bin
-  /usr/local/tex/bin
-  /usr/local/lib/zsh/scr
-  /usr/local/games
-  /usr/games
-  /etc
 )
 
 for element in "${expected_path[@]}"
