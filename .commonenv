@@ -10,6 +10,7 @@ new_path=""
 expected_path=(
   "$HOME/bin"
   "$HOME/.cargo/bin"
+  "$HOME/.local/bin"
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
