@@ -20,7 +20,7 @@
 	untracked = cyan
 [alias]
 	st = status
-	ci = commit -v
+	ci = commit -vs
 	br = branch
 	co = checkout
 	df = diff
@@ -31,7 +31,7 @@
     last = log -1
     remotes = remote -v
 [user]
-    email = nolan@nbrubaker.com
+	email = nolan@heptio.com
     name = Nolan Brubaker
 [merge]
     tool = vimdiff
