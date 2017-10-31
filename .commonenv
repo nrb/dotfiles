@@ -99,6 +99,11 @@ if [ -e '/usr/bin/virtualenvwrapper.sh' ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
 
+if [ -d "$HOME/google-cloud-sdk" ]; then
+    source "$HOME/google-cloud-sdk/completion.zsh.inc"
+    source "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+
 export P=~/projects
 export G=~/go
 export ARK=~/go/src/github.com/heptio/ark
