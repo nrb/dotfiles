@@ -122,6 +122,7 @@ fi
 
 alias gti='git'
 alias pythong='echo lol; python'
+alias k=kubectl
 
 
 if [ -e "$HOME/.openrc" ]; then
