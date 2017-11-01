@@ -11,6 +11,7 @@ expected_path=(
   "$HOME/bin"
   "$HOME/.cargo/bin"
   "$HOME/.local/bin"
+  "$HOME/go/bin"
   /usr/local/bin
   /usr/local/sbin
   /usr/local/etc
@@ -107,3 +108,4 @@ fi
 export P=~/projects
 export G=~/go
 export ARK=~/go/src/github.com/heptio/ark
+export GOPATH=$HOME/go
