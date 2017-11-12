@@ -400,6 +400,7 @@ let g:syntastic_enable_signs=1
 " Automatically open the location list when there are errors
 let g:syntastic_auto_loc_list=0
 
+
 " Flake8                                                       {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -407,6 +408,7 @@ let g:syntastic_auto_loc_list=0
 let g:flake8_max_line_length=110
 
 let g:flake8_cmd="/usr/local/share/python/flake8"
+
 
 " Yankring                                                     {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -420,6 +422,24 @@ let g:yankring_manage_numbered_reg = 1
 let g:yankring_history_dir = '$HOME/.backup/vim'
 
 let g:loaded_delimitMate = 1
+
+
+" netrw                                                        {{{2
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Use tree view
+let g:netrw_liststyle = 3
+" Disable the banner
+let g:netrw_banner = 0
+" Open files in a new tab
+let g:netrw_browse_split = 4
+" Use 25% of the screen
+let g:netrw_winsize = 25
+" Set the file browser to be on the right side, vertical split
+let g:netrw_altv = 1
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
 
 " Auto command settings                                        {{{1
@@ -438,6 +458,7 @@ if has("autocmd")
     " Misc. Files
     au BufRead,BufNewFile *.fountain set filetype=fountain
 endif
+
 
 " Cursor and window controls                                   {{{1
 " -----------------------------------------------------------------
