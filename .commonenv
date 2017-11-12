@@ -106,6 +106,7 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
 fi
 
 export P=~/projects
-export G=~/go
-export ARK=~/go/src/github.com/heptio/ark
 export GOPATH=$HOME/go
+export G=$GOPATH
+export HEPTIO=$GOPATH/src/github.com/heptio
+export ARK=$HEPTIO/ark
