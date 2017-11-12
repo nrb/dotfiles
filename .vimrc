@@ -433,8 +433,8 @@ let g:netrw_banner = 0
 " Open files in a new tab
 let g:netrw_browse_split = 4
 " Use 25% of the screen
-let g:netrw_winsize = 25
-" Set the file browser to be on the right side, vertical split
+let g:netrw_winsize = 30
+" Set the file browser to be on the left side, vertical split
 let g:netrw_altv = 1
 " Enable on launch, always
 " augroup ProjectDrawer
@@ -461,7 +461,8 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-noremap <Leader><Leader> :call ToggleVExplorer()<CR>
+noremap <Leader>f :call ToggleVExplorer()<CR>
+noremap <Leader>t :TagbarToggle<CR>
 
 
 
