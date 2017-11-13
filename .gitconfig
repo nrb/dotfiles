@@ -30,6 +30,7 @@
     branches = branch -a
     last = log -1
     remotes = remote -v
+    furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/master"
 [user]
 	email = nolan@heptio.com
     name = Nolan Brubaker
@@ -43,4 +44,5 @@
 [push]
     default = tracking
 [gitreview]
-	username = nrb
+    username = nrb
+
