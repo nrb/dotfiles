@@ -78,6 +78,9 @@ alias lsa='ll -H'
 # list all dot files
 #alias lsdot='lsd .*'
 
+# dotfiles shortcuts
+alias dotupdate="git pull && git submodule init && git submodule update"
+
 # colors!!!
 ###########
 
