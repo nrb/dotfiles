@@ -512,6 +512,11 @@ if has("autocmd")
 
     " Misc. Files
     au BufRead,BufNewFile *.fountain set filetype=fountain
+
+    " Yaml
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    au BufRead,BufNewFile *.yml,*.yaml set ft=yaml
+
 endif
 
 
