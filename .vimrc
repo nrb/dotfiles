@@ -276,6 +276,8 @@ map <silent> <leader>c :ColorSwitcher<CR>
 
 " Custom functions and commands                                {{{1
 " -----------------------------------------------------------------
+" This isn't multiplatform, sadly, but helpful on Linux.
+command PbCopy :w !xclip -selection keyboard
 
 " Tabs and spaces                                              {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
