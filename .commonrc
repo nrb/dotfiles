@@ -126,6 +126,8 @@ fi
 alias gti='git'
 alias pythong='echo lol; python'
 alias k=kubectl
+alias mkgotags='gotags -R -f tags .'
+alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
 
 
 if [ -e "$HOME/.openrc" ]; then
