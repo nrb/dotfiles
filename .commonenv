@@ -108,5 +108,8 @@ fi
 export P=~/projects
 export GOPATH=$HOME/go
 export G=$GOPATH
+export GOSRC=$GOPATH/src/
+export GOGITHUB=$GOPATH/src/github.com
+export GGH=$GOGITHUB
 export HEPTIO=$GOPATH/src/github.com/heptio
 export ARK=$HEPTIO/ark
