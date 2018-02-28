@@ -105,6 +105,12 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
+if [ -n "$DESKTOP_SESSION" ]; then
+    eval $(gnome-keyring-daemon --start)
+    export AWS_VAULT_BACKEND=secret-service
+    export SSH_AUTH_SOCK
+fi
+
 export P=~/projects
 export GOPATH=$HOME/go
 export G=$GOPATH
