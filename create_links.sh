@@ -79,16 +79,6 @@ for actual_dotfile in $HOME/.dotfiles/.*
 ###################################################################
 
 
-actual_dotfile="$dotfiles_loc/.vagrant.d/Vagrantfile"
-dotfile="Vagrantfile"
-to_create="$HOME/.vagrant.d/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
-
-actual_dotfile="$dotfiles_loc/.vagrant.d/scripts/provision"
-dotfile="provision"
-to_create="$HOME/.vagrant.d/scripts/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
-
 
 # NOTE: None of these files are under version control...
 # -----------------------------------------------------------------
@@ -139,8 +129,7 @@ Deleting them will remove them immediately
         "$HOME"/.backup
         "$HOME"/.backup/vim/swap
         "$HOME"/.virtualenvs
-        "$HOME"/.vagrant.d
-        "$HOME"/.vagrant.d/scripts
+        "$HOME"/.config/alacritty
     )
     
     # create the $DIRS_TO_MAKE
@@ -172,3 +161,8 @@ Deleting them will remove them immediately
             processDotDir $dir
         done
 fi
+
+actual_dotfile="$dotfiles_loc/.config/alacritty/alacritty.yml"
+dotfile="alacritty.yml"
+to_create="$HOME/.config/alacritty/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
