@@ -1,0 +1,16 @@
+snippet tabletest
+func Test$1(t *testing.T) {
+        tests := []struct{
+                name string
+                $2
+        }{
+                {
+                },
+        }
+
+        for _, test := range tests {
+                t.Run(test.name, func(t *testing.T) {
+                })
+        }
+}
+endsnippet
