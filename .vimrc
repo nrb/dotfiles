@@ -551,9 +551,10 @@ map <leader><Enter> i<CR><ESC>
 map <leader>V /\[versions\]<CR>jVG:g/^#/d<CR>gv:g/^$/d<CR>gv:sort i<CR>
 
 " set up the invisible characters
-set listchars+=tab:▸\ ,eol:¬
+set listchars+=tab:\|\ ,eol:¬
 " show invisible characters by default
 set list
+hi SpecialKey ctermfg=2 guifg=gray
 " toggle invisible characters
 noremap <silent> <leader>i :set list!<CR>
 
