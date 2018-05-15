@@ -15,3 +15,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
+[submodule ".vim/bundle/vim-airline/vim-airline"]
+	path = .vim/bundle/vim-airline/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git

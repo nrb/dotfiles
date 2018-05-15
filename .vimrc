@@ -604,7 +604,15 @@ let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
- let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Customize mixed indentation warnings
+" so license headers don't complain in go files
+" For some reason, excluding them just for go with the below didn't work
+"let g:airline#extensions#whitespace#skip_indent_check_ft = {'go': ['mixed-indent-file']}
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long' ]
+"
+
 
 " Buffer shortcuts                                             {{{1
 " -----------------------------------------------------------------
