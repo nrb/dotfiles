@@ -502,6 +502,7 @@ let g:tagbar_type_go = {
 " vim-go                                                       {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:go_fmt_command = "goimports"
+let g:SuperTabDefaultCompletionType = "context"
 
 " Auto command settings                                        {{{1
 " -----------------------------------------------------------------
