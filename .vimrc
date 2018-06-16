@@ -66,12 +66,6 @@ set nomodeline
 " bugs and limitations.
 set nocompatible
 
-" Set up pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-execute pathogen#infect()
-
 " set the mapleader key
 let mapleader = ","
 let g:mapleader = ","
