@@ -1,22 +1,22 @@
 [submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
+	path = .vim/pack/nrb/start/vim-go
 	url = https://github.com/fatih/vim-go
 [submodule ".vim/bundle/netrw.vim"]
-	path = .vim/bundle/netrw.vim
+	path = .vim/pack/nrb/start/netrw.vim
 	url = https://github.com/vim-scripts/netrw.vim
 	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/bundle/vim-gitgutter
+	path = .vim/pack/nrb/start/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
 	branch = master
 [submodule ".vim/bundle/ultisnips"]
-	path = .vim/bundle/ultisnips
+	path = .vim/pack/nrb/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
 [submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
+	path = .vim/pack/nrb/start/supertab
 	url = https://github.com/ervandew/supertab
 [submodule ".vim/bundle/vim-airline/vim-airline"]
-	path = .vim/bundle/vim-airline/vim-airline
+	path = .vim/pack/nrb/start/vim-airline/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
