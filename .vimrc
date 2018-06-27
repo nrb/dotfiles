@@ -173,6 +173,7 @@ map <silent> <leader>\ :set wrap!<CR>
 " turn off smart indentation when pasting
 set pastetoggle=<F2>
 
+
 " Searching                                                    {{{1
 " -----------------------------------------------------------------
 
@@ -498,6 +499,22 @@ let g:tagbar_type_go = {
 let g:go_fmt_command = "goimports"
 let g:SuperTabDefaultCompletionType = "context"
 
+
+" ctrlp                                                       {{{2
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nmap <leader>m :CtrlP<CR>
+
+" Use ag for CtrlP searching
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+    let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 " Auto command settings                                        {{{1
 " -----------------------------------------------------------------
 
@@ -626,8 +643,8 @@ nmap <leader>p :bprevious<cr>
 " issues in tmux and doing ^z/fg
 noremap ^z :suspend<bar>:redraw!<cr>
 
-" List all buffers
-nmap <leader>b :buffers<cr>
+" Move between buffers
+nmap <leader>b :CtrlPBuffer<CR>
 
 " turn on folds (must be the last lines in the file)
 " vim: fdm=marker
