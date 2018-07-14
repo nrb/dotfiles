@@ -112,10 +112,11 @@ if [ -n "$DESKTOP_SESSION" ]; then
 fi
 
 export P=~/projects
-export GOPATH=$HOME/go
+export GOPATH=$HOME/go:/usr/share/gocode/
 export G=$GOPATH
-export GOSRC=$GOPATH/src/
-export GOGITHUB=$GOPATH/src/github.com
+export GOSRC=$HOME/go/src/
+export GOGITHUB=$GOSRC/github.com
 export GGH=$GOGITHUB
-export HEPTIO=$GOPATH/src/github.com/heptio
+export HEPTIO=$GOSRC/github.com/heptio
 export ARK=$HEPTIO/ark
+export MYGO=$GOGITHUB/nrb
