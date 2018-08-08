@@ -30,7 +30,7 @@
     branches = branch -a
     last = log -1
     remotes = remote -v
-    furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/master"
+    furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase $(git rev-parse --symbolic-full-name --abbrev-ref @{u})"
 [user]
 	email = nolan@heptio.com
     name = Nolan Brubaker
