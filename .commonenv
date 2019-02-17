@@ -118,5 +118,6 @@ export GOSRC=$HOME/go/src/
 export GOGITHUB=$GOSRC/github.com
 export GGH=$GOGITHUB
 export HEPTIO=$GOSRC/github.com/heptio
-export ARK=$HEPTIO/ark
+export ARK=$HEPTIO/velero
+export VELERO=$HEPTIO/velero
 export MYGO=$GOGITHUB/nrb
