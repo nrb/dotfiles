@@ -32,7 +32,7 @@
     remotes = remote -v
     furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/$(git rev-parse --abbrev-ref HEAD)"
 [user]
-	email = nolan@heptio.com
+	email = brubakern@vmware.com
     name = Nolan Brubaker
 [merge]
     tool = vimdiff
