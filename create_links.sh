@@ -130,6 +130,7 @@ Deleting them will remove them immediately
         "$HOME"/.backup/vim/swap
         "$HOME"/.virtualenvs
         "$HOME"/.config/alacritty
+        "$HOME"/.config/Code/User
     )
     
     # create the $DIRS_TO_MAKE
@@ -165,4 +166,9 @@ fi
 actual_dotfile="$dotfiles_loc/.config/alacritty/alacritty.yml"
 dotfile="alacritty.yml"
 to_create="$HOME/.config/alacritty/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
+actual_dotfile="$dotfiles_loc/.config/Code/User/settings.json"
+dotfile="settings.json"
+to_create="$HOME/.config/Code/User/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile

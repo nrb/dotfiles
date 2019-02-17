@@ -1,0 +1,76 @@
+{
+    "window.zoomLevel": 1.30,
+    "workbench.sideBar.location": "left",
+    "editor.renderControlCharacters": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "window.openFilesInNewWindow": "on",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "markdownTableFormatter.enable": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/refs/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/vendor/**": true
+    },
+    "vim.disableExtension": false,
+    "vim.leader": ",",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                ":tabn"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                ":tabp"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "go.formatTool": "goimports",
+    "editor.formatOnSave": true,
+    "go.autocompleteUnimportedPackages": true,
+    "go.lintTool": "gometalinter",
+    "go.addTags": {
+        "tags": "json",
+        "options": "json=omitempty",
+        "promptForTags": false,
+        "transform": "snakecase"
+    },
+    "go.gotoSymbol.includeImports": true,
+    "go.lintOnSave": "file",
+    "go.buildOnSave": "off",
+    "go.coverOnTestPackage": false,
+    "go.coverOnSingleTest": true
+}
