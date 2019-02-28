@@ -72,5 +72,6 @@
     "go.lintOnSave": "file",
     "go.buildOnSave": "off",
     "go.coverOnTestPackage": false,
-    "go.coverOnSingleTest": true
+    "go.coverOnSingleTest": true,
+    "breadcrumbs.enabled": true
 }
