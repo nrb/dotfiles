@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 1.30,
+    "window.zoomLevel": 1,
     "workbench.sideBar.location": "left",
     "editor.renderControlCharacters": true,
     "editor.minimap.enabled": false,
@@ -73,5 +73,16 @@
     "go.buildOnSave": "off",
     "go.coverOnTestPackage": false,
     "go.coverOnSingleTest": true,
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.import.gradle.enabled": false,
+    "liveshare.featureSet": "insiders"
 }
