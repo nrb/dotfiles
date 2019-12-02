@@ -129,7 +129,7 @@ alias k=kubectl
 alias mkgotags='gotags -R -f tags .'
 alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
 alias ark='/home/nrb/go/src/github.com/heptio/velero/_output/bin/linux/amd64/velero'
-alias v='/home/nrb/go/src/github.com/heptio/velero/_output/bin/linux/amd64/velero'
+alias v='/home/nrb/go/src/github.com/vmware-tanzu/velero/_output/bin/linux/amd64/velero'
 
 
 if [ -e "$HOME/.openrc" ]; then
