@@ -26,19 +26,13 @@ function installHomebrew() {
 }
 
 function installPrograms() {
-    echo "!! Installing preferred programs"
-    local programs=$(cat osx_deps.txt)
-    local brew_installed=$(brew list)
-    for program in $programs
-    do
-        if [[ "$brew_installed" =~ "$program" ]]
-        then
-            echo "!!! $program already installed, skipping"
-            continue
-        fi
-        echo "!!! Installing $program"
-        brew install $program
-    done;
+    echo "!! Installing casks"
+
+    brew cask install $(macos_casks.txt)
+
+    echo "!! Installing formulae"
+    brew install $(osx_deps.txt)
+
 }
 
 # A nice defaults command reference:

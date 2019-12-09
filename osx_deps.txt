@@ -1,7 +1,1 @@
-python
-ruby
-ack
-vim
-tmux
-zsh
-git
+python ruby the_silver_searcher vim tmux zsh git kind go docker 
