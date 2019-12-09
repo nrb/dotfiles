@@ -21,17 +21,17 @@ function installHomebrew() {
         return
     fi
     echo "!! Installing Homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew doctor
 }
 
 function installPrograms() {
     echo "!! Installing casks"
 
-    brew cask install $(macos_casks.txt)
+    brew cask install $(cat ./macos_casks.txt)
 
     echo "!! Installing formulae"
-    brew install $(osx_deps.txt)
+    brew install $(cat ./osx_deps.txt)
 
 }
 
