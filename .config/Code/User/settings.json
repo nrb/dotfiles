@@ -16,14 +16,14 @@
     "vim.disableExtension": false,
     "vim.leader": ",",
     "vim.useSystemClipboard": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindings": [
         {
             "before": [
                 "<leader>",
                 "n"
             ],
             "commands": [
-                ":tabn"
+                "workbench.action.nextEditorInGroup"
             ]
         },
         {
@@ -32,7 +32,18 @@
                 "p"
             ],
             "commands": [
-                ":tabp"
+                "workbench.action.previousEditorInGroup"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                ":nohl"
             ]
         },
         {
