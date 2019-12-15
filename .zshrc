@@ -149,3 +149,9 @@ bindkey "^l" clear-screen
 if $(which direnv > /dev/null); then
     eval "$(direnv hook zsh)"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nrb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nrb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
