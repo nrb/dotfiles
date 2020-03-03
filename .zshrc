@@ -155,3 +155,4 @@ if [ -f '/Users/nrb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/n
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
