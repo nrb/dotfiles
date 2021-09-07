@@ -21,9 +21,9 @@ alias mv='mv -i'
 ############
 # conditionally set up coloring on different OS types
 if [ $UNAME = "FreeBSD" ] || [ $UNAME = "Darwin" ]; then
-   alias ls="ls -G"
+   alias ls="ls -Gh"
 elif [ $UNAME = "Linux" ]; then
-   alias ls="ls --color=auto -F"
+   alias ls="ls --color=auto -FH"
 fi
 
 # show me everything
@@ -32,8 +32,6 @@ alias ll='ls -al'
 alias lss='ll -Sr'
 # sort by date modified
 alias lsdate='lsa -tr'
-# ll but human readable size
-alias lsa='ll -H'
 # don't list directories
 alias lsd='lsa -d'
 # list all dot files
