@@ -43,3 +43,5 @@
     autosetupmerge = true
 [push]
     default = tracking
+[format]
+	signOff = true
