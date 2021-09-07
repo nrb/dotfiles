@@ -31,9 +31,6 @@ fi
 # turn off the stupid bell
 #setopt NO_BEEP
 
-# automatically print timing statistics if the command took longer
-# than a minute
-export REPORTTIME=60
 
 # Changing Directories
 setopt AUTO_CD CDABLE_VARS
