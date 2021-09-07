@@ -131,15 +131,6 @@ compinit -C
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# uncomment this to show when you aren't the current user
-#ME="clayton"
-
-# use some crazy ass shell prompt
-# thanks to for the basis: http://aperiodic.net/phil/prompt/
-#source $HOME/.zshprompt
-
-# use a simpler 3 line prompt
-source $HOME/.zshprompt_simple
 
 # load up per environment extras
 source ~/.zshextras
@@ -156,3 +147,5 @@ if [ -f '/Users/nrb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/n
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+eval "$(starship init zsh)"
