@@ -64,3 +64,9 @@ rationalize-path fpath
 # extra per environment settings
 source $HOME/.zshenv_extras
 
+# History settings
+##################
+HISTSIZE=3000
+SAVEHIST=3000
+HISTFILE=~/.zsh_history
+export HISTFILE HISTSIZE SAVEHIST

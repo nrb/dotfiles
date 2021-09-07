@@ -27,6 +27,7 @@ expected_path=(
   /usr/bsd
   /usr/libexec
   /Developer/Tools
+  /usr/local/opt/helm@2/bin
 )
 
 for element in "${expected_path[@]}"
@@ -48,7 +49,6 @@ export PATH
 #   * display a long prompt with more info (-M)
 #   * show colors instead of escape characters (-R)
 export LESS="-IMR"
-
 
 export EDITOR=vi
 

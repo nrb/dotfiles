@@ -88,12 +88,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# History settings
-##################
-HISTSIZE=3000
-SAVEHIST=3000
-HISTFILE=~/.zsh_history
-export HISTFILE HISTSIZE SAVEHIST
+
+bindkey "^l" clear-screen
+
 
 # Completions
 #############
@@ -102,11 +99,9 @@ compinit -C
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-
 # load up per environment extras
 source ~/.zshextras
 
-bindkey "^l" clear-screen
 
 if $(which direnv > /dev/null); then
     eval "$(direnv hook zsh)"
@@ -117,6 +112,5 @@ if [ -f '/Users/nrb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/n
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nrb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 eval "$(starship init zsh)"
