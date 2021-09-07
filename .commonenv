@@ -50,15 +50,7 @@ export PATH
 export LESS="-IMR"
 
 
-# conditionally set the editor variable
-if checkPath mate_wait; then
-    # to set this up you need to symlink the mate command
-    #   $ cd ~/bin
-    #   $ ln -s /path/to/mate mate_wait
-    export EDITOR='mate_wait'
-else
-    export EDITOR=vi
-fi
+export EDITOR=vi
 
 # use a fancy terminal
 export TERM=xterm-256color
