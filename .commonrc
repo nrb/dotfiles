@@ -74,9 +74,9 @@ alias lsdate='lsa -tr'
 # ll but human readable size
 alias lsa='ll -H'
 # don't list directories
-#alias lsd='lsa -d'
+alias lsd='lsa -d'
 # list all dot files
-#alias lsdot='lsd .*'
+alias lsdot='lsd .*'
 
 # dotfiles shortcuts
 alias dotupdate="git pull && git submodule init && git submodule update"
