@@ -130,6 +130,16 @@ cdpath=($HOME/projects)
 
 # Completions
 #############
+
+# Integrate with Homebrew's completions, if available
+# Must come before the standard compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 autoload -U compinit
 compinit -C
 # Define completers
