@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 3,
     "workbench.sideBar.location": "left",
     "editor.renderControlCharacters": true,
     "editor.minimap.enabled": false,
@@ -103,5 +103,6 @@
     "python.analysis.memory.keepLibraryAst": true,
     "python.autoComplete.addBrackets": true,
     "redhat.telemetry.enabled": false,
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "python.analysis.completeFunctionParens": true
 }
