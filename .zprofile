@@ -1,3 +1,3 @@
-source $HOME/.commonprofile
+source $HOME/.commonfuncs
 
 export PATH="$HOME/.cargo/bin:$PATH"
