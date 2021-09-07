@@ -87,7 +87,8 @@ zle -N history-beginning-search-forward-end history-search-end
 zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
-zstyle ':completion:*:history-words' menu yes
+# Allow you to select in a menu
+zstyle ':completion:*' menu selectstyle ':completion:*:history-words' menu yes
 
 # vi command line editor
 ########################
