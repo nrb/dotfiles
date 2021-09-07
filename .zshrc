@@ -83,15 +83,9 @@ autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# set up the history-complete-older and newer
-zstyle ':completion:*:history-words' stop yes
-zstyle ':completion:*:history-words' remove-all-dups yes
-zstyle ':completion:*:history-words' list false
-# Allow you to select in a menu
-zstyle ':completion:*' menu selectstyle ':completion:*:history-words' menu yes
-
 # vi command line editor
 ########################
+bindkey "^l" clear-screen
 bindkey -v
 # use ctrl+a and ctrl+e like emacs mode
 bindkey -M viins '^A' vi-beginning-of-line
@@ -129,7 +123,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-bindkey "^l" clear-screen
 
 
 # Completions
@@ -138,6 +131,12 @@ autoload -U compinit
 compinit -C
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# set up the history-complete-older and newer
+zstyle ':completion:*:history-words' stop yes
+zstyle ':completion:*:history-words' remove-all-dups yes
+zstyle ':completion:*:history-words' list false
+# Allow you to select in a menu
+zstyle ':completion:*' menu selectstyle ':completion:*:history-words' menu yes
 
 # load up per environment extras
 source ~/.zshextras
