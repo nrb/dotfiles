@@ -29,6 +29,10 @@ function installPrograms() {
     brew bundle
 }
 
+function installVSCodeExtentions() {
+    ./install_code_extensions.sh
+}
+
 # A nice defaults command reference:
 # http://rixstep.com/2/20060901,00.shtml
 function configureDock() {
@@ -88,6 +92,7 @@ function main() {
     installDevTools
     installHomebrew
     installPrograms
+    installVSCodeExtentions
     configureDock
     configureFinder
     echo "! Setting timezone (sudo)"
