@@ -124,6 +124,7 @@ if [ -d $VIRTUALENVS_DIR ]; then
 fi
 
 alias gti='git'
+alias ga='git add'
 alias pythong='echo lol; python'
 alias k=kubectl
 alias mkgotags='gotags -R -f tags .'
