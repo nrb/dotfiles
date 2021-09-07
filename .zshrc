@@ -125,7 +125,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-
+# tab completion directories, without full path.
+cdpath=($HOME/projects)
 
 # Completions
 #############
@@ -146,6 +147,9 @@ zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # Allow you to select in a menu
 zstyle ':completion:*' menu selectstyle
+
+# path completions. Use local directories first, then cdpath ones
+zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories'
 
 # set up the history-complete-older and newer
 zstyle ':completion:*:history-words' stop yes
