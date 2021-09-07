@@ -64,4 +64,3 @@ rationalize-path fpath
 # extra per environment settings
 source $HOME/.zshenv_extras
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
