@@ -61,6 +61,17 @@ typeset -U fpath
 # sake more than anything.
 rationalize-path fpath
 
+# Enable a few things for less (This will also apply to man)
+#   * turn off case sensitive search (-I)
+#   * display a long prompt with more info (-M)
+#   * show colors instead of escape characters (-R)
+export LESS="-IMR"
+
+export EDITOR=vi
+
+# use a fancy terminal
+export TERM=xterm-256color
+
 # extra per environment settings
 source $HOME/.zshenv_extras
 
@@ -70,3 +81,19 @@ HISTSIZE=3000
 SAVEHIST=3000
 HISTFILE=~/.zsh_history
 export HISTFILE HISTSIZE SAVEHIST
+
+# Avoid tarring up macOS files
+export COPYFILE_DISABLE="True"
+export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
+
+# Shortcuts
+export P=~/projects
+export GOPATH=$HOME/go:/usr/share/gocode/
+export G=$GOPATH
+export GOSRC=$HOME/go/src/
+export GOGITHUB=$GOSRC/github.com
+export GGH=$GOGITHUB
+export HEPTIO=$GOSRC/github.com/vmware-tanzu
+export ARK=$HEPTIO/velero
+export VELERO=$HEPTIO/velero
+export MYGO=$GOGITHUB/nrb

@@ -44,53 +44,9 @@ done
 PATH=$new_path:$PATH
 export PATH
 
-# Enable a few things for less (This will also apply to man)
-#   * turn off case sensitive search (-I)
-#   * display a long prompt with more info (-M)
-#   * show colors instead of escape characters (-R)
-export LESS="-IMR"
-
-export EDITOR=vi
-
-# use a fancy terminal
-export TERM=xterm-256color
-
-# get crazy with python, and the cheese whiz
-#export PYTHONSTARTUP=$HOME/.pystartup
-
-# set up some more OS X specific stuff
-if [ $UNAME = "Darwin" ]; then
-    # Figure out the major and minor version of OS X
-    os_majorversion=$(sw_vers | awk '/ProductVersion/ {print $2}' | cut -f2 -d'.')
-    os_minorversion=$(sw_vers | awk '/ProductVersion/ {print $2}' | cut -f3 -d'.')
-    
-    # to not tar up resource forks, you'll need this
-    if [  $os_majorversion -ge 5 ]; then
-        # Leopard version (and beyond??)
-        export COPYFILE_DISABLE="True"
-    elif [ ${os_majorversion} -eq 4 ] && [ ${os_minorversion} -ge 6 ]; then
-        # Tiger version
-        export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
-    fi
-
-    export VIRTUALENV_WRAPPER
-
-fi
 
 # Ensure the path is set up so that OS X can find the right python
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-if [ -e '/usr/local/share/python/virtualenvwrapper.sh' ]; then
-    source /usr/local/share/python/virtualenvwrapper.sh
-fi
-
-if [ -e '/usr/local/share/python3/virtualenvwrapper.sh' ]; then
-    source /usr/local/share/python3/virtualenvwrapper.sh
-fi
-
-if [ -e '/usr/bin/virtualenvwrapper.sh' ]; then
-    source /usr/bin/virtualenvwrapper.sh
-fi
 
 if [ -d "$HOME/google-cloud-sdk" ]; then
     source "$HOME/google-cloud-sdk/completion.zsh.inc"
@@ -102,14 +58,3 @@ if [ -n "$DESKTOP_SESSION" ]; then
     export AWS_VAULT_BACKEND=secret-service
     export SSH_AUTH_SOCK
 fi
-
-export P=~/projects
-export GOPATH=$HOME/go:/usr/share/gocode/
-export G=$GOPATH
-export GOSRC=$HOME/go/src/
-export GOGITHUB=$GOSRC/github.com
-export GGH=$GOGITHUB
-export HEPTIO=$GOSRC/github.com/vmware-tanzu
-export ARK=$HEPTIO/velero
-export VELERO=$HEPTIO/velero
-export MYGO=$GOGITHUB/nrb
