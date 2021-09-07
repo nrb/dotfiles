@@ -28,3 +28,5 @@ openstack-ansible/roles/
 .direnv
 .config/iterm2
 .config/velero
+.config/gcloud
+.config/tanzu
