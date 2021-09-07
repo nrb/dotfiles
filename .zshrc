@@ -1,12 +1,8 @@
 UNAME=$(uname)
-source $HOME/.commonfuncs
 
 # Common hashes
 #hash -d L=/var/log
 #hash -d R=/usr/local/etc/rc.d
-
-# set up common aliases between shells
-source $HOME/.commonrc
 
 # global aliases
 ################
@@ -20,16 +16,53 @@ alias -g L='| less'
 alias -g M='| more'
 alias -g T='| tail'
 alias -g TT='| tail -n20'
-if checkPath colordiff; then
-    alias -g CD='| colordiff'
-else
-    alias -g CD='| vim -R -'
-fi
-# bootstrap with distribute
-#alias -g bootstrap='bootstrap.py --distribute'
 
-# turn off the stupid bell
-#setopt NO_BEEP
+# make copy and move ask before replacing files
+alias cp='cp -i'
+alias mv='mv -i'
+
+# ls aliases
+############
+# conditionally set up coloring on different OS types
+if [ $UNAME = "FreeBSD" ] || [ $UNAME = "Darwin" ]; then
+   alias ls="ls -G"
+elif [ $UNAME = "Linux" ]; then
+   alias ls="ls --color=auto -F"
+fi
+
+# show me everything
+alias ll='ls -al'
+# sort by size
+alias lss='ll -Sr'
+# sort by date modified
+alias lsdate='lsa -tr'
+# ll but human readable size
+alias lsa='ll -H'
+# don't list directories
+alias lsd='lsa -d'
+# list all dot files
+alias lsdot='lsd .*'
+
+# output more lines so that you can grep them
+alias psa='ps axwww'
+# grep through processes
+alias psg='psa | grep -i'
+
+
+alias gti='git'
+alias ga='git add'
+alias pythong='echo lol; python'
+alias k=kubectl
+alias mkgotags='gotags -R -f tags .'
+alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
+alias ark='/home/nrb/go/src/github.com/heptio/velero/_output/bin/linux/amd64/velero'
+alias v='$HOME/go/src/github.com/vmware-tanzu/velero/_output/bin/$(uname | tr "[:upper:]" "[:lower:]")/amd64/velero'
+
+if [[ $UNAME == "Linux" ]]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+    alias open='xdg-open'
+fi
 
 
 # Changing Directories
