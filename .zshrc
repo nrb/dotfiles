@@ -99,15 +99,17 @@ bindkey -M viins '^X' _expand_alias
 # Search backwards with a pattern
 bindkey -M vicmd '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd '^F' history-incremental-pattern-search-forward
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 # set up for insert mode too
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 # complete previous occurences of the command up till now on the command line
 bindkey -M viins "^[OA" history-beginning-search-backward-end
-bindkey -M viins "^[[A" history-beginning-search-backward-end
+bindkey -M viins "^[[A" history-substring-search-up
 bindkey -M viins "^N" up-line-or-search
 bindkey -M viins "^[OB" history-beginning-search-forward-end
-bindkey -M viins "^[[B" history-beginning-search-forward-end
+bindkey -M viins "^[[B" history-substring-search-down
 bindkey -M viins "^P" down-line-or-search
 
 # edit current command in $EDITOR
@@ -129,14 +131,27 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 #############
 autoload -U compinit
 compinit -C
+# Define completers
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# Group completions by type
+zstyle ':completion:*' group-name ''
+
+# Describe the types with a format string
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# Allow you to select in a menu
+zstyle ':completion:*' menu selectstyle
+
 # set up the history-complete-older and newer
 zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
-# Allow you to select in a menu
-zstyle ':completion:*' menu selectstyle ':completion:*:history-words' menu yes
+zstyle ':completion:*:history-words' menu yes
 
 # load up per environment extras
 source ~/.zshextras
@@ -151,4 +166,8 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
+# From Homebrew on macos
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 eval "$(starship init zsh)"
+
