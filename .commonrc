@@ -60,7 +60,7 @@ alias mv='mv -i'
 ############
 # conditionally set up coloring on different OS types
 if [ $UNAME = "FreeBSD" ] || [ $UNAME = "Darwin" ]; then
-   alias ls="ls -F"
+   alias ls="ls -G"
 elif [ $UNAME = "Linux" ]; then
    alias ls="ls --color=auto -F"
 fi

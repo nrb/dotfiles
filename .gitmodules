@@ -27,3 +27,6 @@
 [submodule ".vim/pack/nrb/start/ctrlp.vim"]
 	path = .vim/pack/nrb/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule ".vim/pack/nrb/start/vim-markdown"]
+	path = .vim/pack/nrb/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
