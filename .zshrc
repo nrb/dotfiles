@@ -58,7 +58,6 @@ zstyle ':completion:*:history-words' menu yes
 
 # vi command line editor
 ########################
-# TODO: Un-comment the following line to have vi style keybindings
 bindkey -v
 # use ctrl+a and ctrl+e like emacs mode
 bindkey -M viins '^A' vi-beginning-of-line
@@ -88,6 +87,13 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Use vi key bindings in menu selection
+# Must run before compinit
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 
 bindkey "^l" clear-screen
 
