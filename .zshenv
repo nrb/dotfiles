@@ -1,5 +1,3 @@
-source $HOME/.commonenv
-
 # from http://zsh.dotsrc.org/Contrib/startup/users/debbiep/dot.zshenv
 # rationalize-path()
 # Later we'll need to trim down the paths that follow because the ones
@@ -60,6 +58,9 @@ typeset -U fpath
 # Remove entries that don't exist on this system.  Just for sanity's
 # sake more than anything.
 rationalize-path fpath
+
+# Set out PATH up
+PATH=$HOME/bin:$PATH
 
 # Enable a few things for less (This will also apply to man)
 #   * turn off case sensitive search (-I)
