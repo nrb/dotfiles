@@ -26,3 +26,5 @@ svn-commit.tmp
 __pycache__/
 openstack-ansible/roles/
 .direnv
+.config/iterm2
+.config/velero
