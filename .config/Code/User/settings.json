@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "workbench.sideBar.location": "left",
     "editor.renderControlCharacters": true,
     "editor.minimap.enabled": false,
@@ -96,5 +96,12 @@
     },
     "java.errors.incompleteClasspath.severity": "ignore",
     "java.import.gradle.enabled": false,
-    "liveshare.featureSet": "insiders"
+    "liveshare.featureSet": "insiders",
+    "python.formatting.provider": "black",
+    "python.linting.lintOnSave": false,
+    "python.showStartPage": false,
+    "python.analysis.memory.keepLibraryAst": true,
+    "python.autoComplete.addBrackets": true,
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Solarized Light"
 }
