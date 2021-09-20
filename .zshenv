@@ -89,7 +89,7 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
 
 # Shortcuts
 export P=~/projects
-export GOPATH=$HOME/go:/usr/share/gocode/
+export GOPATH=$HOME/go
 export G=$GOPATH
 export GOSRC=$HOME/go/src/
 export GOGITHUB=$GOSRC/github.com
