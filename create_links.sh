@@ -63,7 +63,7 @@ linkDotfile() {
 
 # Links all the dotfiles from the .dotfiles directory
 # -----------------------------------------------------------------
-for actual_dotfile in $HOME/.dotfiles/.*
+for actual_dotfile in $(ls $HOME/dotfiles/.*)
     do
         dotfile=$(echo $actual_dotfile | awk -F"$dotfiles_loc/" '{print $2}')
         # ignore certain directories
