@@ -59,8 +59,8 @@ typeset -U fpath
 # sake more than anything.
 rationalize-path fpath
 
-# Set out PATH up
-PATH=$HOME/bin:$PATH
+# Set our PATH up
+PATH=$HOME/bin:$PATH:$HOME/go/bin
 
 # Enable a few things for less (This will also apply to man)
 #   * turn off case sensitive search (-I)
@@ -94,7 +94,6 @@ export G=$GOPATH
 export GOSRC=$HOME/go/src/
 export GOGITHUB=$GOSRC/github.com
 export GGH=$GOGITHUB
-export HEPTIO=$GOSRC/github.com/vmware-tanzu
-export ARK=$HEPTIO/velero
-export VELERO=$HEPTIO/velero
+export TANZU=$GOSRC/github.com/vmware-tanzu
 export MYGO=$GOGITHUB/nrb
+. "$HOME/.cargo/env"
