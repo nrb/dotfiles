@@ -509,17 +509,15 @@ let g:go_auto_sameids = 1
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 nmap <leader>m :CtrlP<CR>
 
-" Use ag for CtrlP searching
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" Use rg for CtrlP searching
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
 else
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-    let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+  let g:ctrlp_clear_cache_on_exit = 0
 endif
+
 " Auto command settings                                        {{{1
 " -----------------------------------------------------------------
 
@@ -541,6 +539,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.yml,*.yaml set ft=yaml
 
 endif
+
 
 
 " Cursor and window controls                                   {{{1
@@ -587,6 +586,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
 
 " GUI settings                                                 {{{1
 " -----------------------------------------------------------------
@@ -653,3 +653,4 @@ nmap <leader>b :CtrlPBuffer<CR>
 
 " turn on folds (must be the last lines in the file)
 " vim: fdm=marker
+"
