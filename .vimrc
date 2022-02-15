@@ -109,6 +109,8 @@ set backspace=indent,eol,start
 " the previous line.
 set autoindent
 set smartindent
+set updatetime=100
+
 
 " Visual settings                                              {{{1
 " -----------------------------------------------------------------
@@ -497,6 +499,10 @@ let g:tagbar_type_go = {
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:go_fmt_command = "goimports"
 let g:SuperTabDefaultCompletionType = "context"
+" Automatically write the type info to the status bar.
+let g:go_auto_type_info = 1
+" Automatically highlight the same IDs
+let g:go_auto_sameids = 1
 
 
 " ctrlp                                                       {{{2
