@@ -18,7 +18,6 @@
 "    <leader>t       -- opens the fuzzy finder coverage mode
 "    <leader>h       -- toggles the highlight search
 "    <leader>n       -- toggles the line numbers
-"    <leader>a       -- starts an ack search in the CWD
 "    <leader>T       -- Open new buffer
 "    <leader>i       -- toggles invisible characters
 "    <leader>\       -- toggle line wrapping
@@ -370,12 +369,6 @@ command! -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 " turn on filetype checking for plugins like pyflakes
 filetype on                " enables filetype detection
 filetype plugin indent on  " enables filetype specific plugins
-
-" Ack                                                          {{{2
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" shortcut for ack search
-map <leader>a :Ack!<Space>
 
 
 " Dpaste                                                      {{{2
