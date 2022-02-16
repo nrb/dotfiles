@@ -40,15 +40,13 @@
 "
 " I have set up some custom commands that might be of interest
 "
-"    MarkdownToHTML  -- Converts the current buffer into HTML and
-"                       places it in a scratch buffer.
-"    MarkdownToHTMLCopy -- Same as previous, but copies to clipboard
 "    Shell           -- Runs a shell command and places it in the
 "                       scratch buffer
 "    TidyXML         -- Runs tidy in XML mode on the current buffer
 "    TabStyle        -- Set the tab style and number, :TabStyle space 4
 "    TerminalHere    -- Opens the terminal to the directory of the
 "                       current buffer
+
 
 " General setting                                              {{{1
 " -----------------------------------------------------------------
@@ -167,6 +165,7 @@ set listchars+=precedes:←,extends:→
 
 " toggle line wrapping on/off
 map <silent> <leader>\ :set wrap!<CR>
+
 
 " Pasting                                                      {{{1
 " -----------------------------------------------------------------
@@ -351,14 +350,7 @@ endfunction
 " Markdown                                                     {{{2
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" run markdown on the current file and place the html in a scratch buffer
-command! -nargs=0 MarkdownToHTML  call s:RunShellCommand('Markdown.pl %')
-" replace the current buffer with the html version of the markdown
-command! -nargs=0 MarkdownToHTMLReplace  %!Markdown.pl "%"
-" copy the html version of the markdown to the clipboard (os x)
-command! -nargs=0 MarkdownToHTMLCopy  !Markdown.pl "%" | pbcopy
-" use pandoc to convert from html into markdown
-command! -nargs=0 MarkdownFromHTML  %!pandoc -f html -t markdown "%"
+let g:vim_markdown_folding_disabled = 1
 
 
 " Open a buffer number in a vertical split                     {{{2
