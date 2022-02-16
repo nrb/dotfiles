@@ -580,34 +580,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 
-" GUI settings                                                 {{{1
-" -----------------------------------------------------------------
-
-if has("gui_running")
-
-    " turn off the cursor blinking (who thinks that is a good idea?)
-    "set guicursor+=a:blinkon0
-
-    " Default size of window
-    set columns=145
-    set lines=45
-    
-    " automagically open NERDTree in a GUI
-    autocmd VimEnter * exe 'NERDTreeToggle' | wincmd l
-    " close the NERDTree when opening it's all text and vimperator
-    " editors
-    autocmd VimEnter,BufNewFile,BufRead /*/itsalltext/* exe 'NERDTreeClose'
-    autocmd VimEnter,BufNewFile,BufRead /*/itsalltext/* set nospell
-
-    " OS Specific
-    if has("gui_macvim")
-        "set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-        set guifont=Ubuntu\ Mono:h10
-        set guioptions-=T " remove toolbar
-    endif
-
-endif
-
 " vim-airline                                                  {{{1
 " -----------------------------------------------------------------
 " Disable ctags support.
