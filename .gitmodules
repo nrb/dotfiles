@@ -1,10 +1,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/pack/nrb/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule ".vim/bundle/netrw.vim"]
-	path = .vim/pack/nrb/start/netrw.vim
-	url = https://github.com/vim-scripts/netrw.vim
-	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/pack/nrb/start/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
