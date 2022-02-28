@@ -131,6 +131,7 @@ Deleting them will remove them immediately
         "$HOME"/.virtualenvs
         "$HOME"/.config/alacritty
         "$HOME"/.config/Code/User
+        "$HOME"/.config/nvim
     )
     
     # create the $DIRS_TO_MAKE
@@ -171,4 +172,10 @@ linkDotfile $dotfile $to_create $actual_dotfile
 actual_dotfile="$dotfiles_loc/.config/Code/User/settings.json"
 dotfile="settings.json"
 to_create="$HOME/.config/Code/User/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
+
+actual_dotfile="$dotfiles_loc/.config/nvim/init.vim"
+dotfile="init.vim"
+to_create="$HOME/.config/nvim/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
