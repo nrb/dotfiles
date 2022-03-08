@@ -174,8 +174,9 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
-# From Homebrew on macos
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Borrowed from Homebrew on macos.
+# source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.dotfiles/zshscripts/zsh-history-substring-search.zsh
 
 eval "$(starship init zsh)"
 
