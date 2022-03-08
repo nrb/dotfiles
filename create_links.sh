@@ -51,7 +51,7 @@ linkDotfile() {
     else
         # symlink the conf file
         if [ ! -e "$to_create" ]; then
-            echo "linking $dotfile"
+            echo "linking $actual_dotfile to $to_create"
             ln -s $actual_dotfile $to_create
         fi
         # warn the user that an existing file is in the way
@@ -61,9 +61,10 @@ linkDotfile() {
     fi
 }
 
+
 # Links all the dotfiles from the .dotfiles directory
 # -----------------------------------------------------------------
-for actual_dotfile in $(ls $HOME/dotfiles/.*)
+for actual_dotfile in $(ls -d ${dotfiles_loc}/.*)
     do
         dotfile=$(echo $actual_dotfile | awk -F"$dotfiles_loc/" '{print $2}')
         # ignore certain directories
@@ -128,7 +129,6 @@ Deleting them will remove them immediately
         "$HOME"/bin
         "$HOME"/.backup
         "$HOME"/.backup/vim/swap
-        "$HOME"/.virtualenvs
         "$HOME"/.config/alacritty
         "$HOME"/.config/Code/User
         "$HOME"/.config/nvim
