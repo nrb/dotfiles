@@ -179,3 +179,8 @@ actual_dotfile="$dotfiles_loc/.config/nvim/init.vim"
 dotfile="init.vim"
 to_create="$HOME/.config/nvim/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
+
+# Set up our projects directory in case it's not already there.
+if [[ -d $HOME/projects ]]; then
+    mkdir $HOME/projects
+fi
