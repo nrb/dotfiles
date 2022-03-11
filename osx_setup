@@ -3,6 +3,8 @@
 
 # Sets up an OS X workstation how I like it.
 
+# TODO: Separate things that need sudo access from those that don't (like Homebrew)
+
 function installDevTools() {
     if [[ -e $(xcode-select --print-path) ]]
     then
