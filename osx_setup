@@ -93,6 +93,24 @@ function configureFinder() {
     defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 }
 
+# taken from https://gist.github.com/thomasfinch/14bd3181799734c872d2ad3b207cc01c
+function configureNightShift() {
+    echo "! Enabling Night Shift"
+    plistLoc="/private/var/root/Library/Preferences/com.apple.CoreBrightness.plist"
+
+    currentUserUID=$(dscl . -read /Users/$(whoami)/ GeneratedUID) # Get the GeneratedUID for the current user
+    currentUserUID=$(echo $currentUserUID | cut -d' ' -f2) # Remove the "GeneratedUID: " part
+    currentUserUID="CBUser-"$currentUserUID # Append the prefix
+
+    # Enable settings
+    algoOverride=4
+    enabled=1
+
+    # Change the settings directly in the core brightness plist (defaults doesn't deal with nested data structures well)
+    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueLightReductionAlgoOverride $algoOverride" $plistLoc
+    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueReductionEnabled $enabled" $plistLoc
+    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueLightReductionAlgoOverrideTimestamp `date`" $plistLoc
+}
 
 function main() {
     if ! [[ "$OSTYPE" =~ ^darwin ]];
@@ -106,6 +124,7 @@ function main() {
     installVSCodeExtentions
     configureDock
     configureFinder
+    configureNightShift
     
     echo "! Configuring Activity Monitor"
     # Show the main window when launching Activity Monitor
@@ -119,7 +138,6 @@ function main() {
 
     # Disable smart dashes as they’re annoying when typing code
     defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
 
     echo "! Setting timezone (sudo)"
     sudo systemsetup -settimezone "America/New York" > /dev/null
