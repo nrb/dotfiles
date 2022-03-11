@@ -35,6 +35,13 @@ function installVSCodeExtentions() {
     ./install_code_extensions.sh
 }
 
+function cleanDockIcons() {
+    echo "! Cleaning up default dock icons as of Monterey"
+    for app in "Launchpad" "Safari" "Messages" "Maps" "Photos" "FaceTime" "Calendar" "Contacts" "Reminders" "Notes" "TV" "Music" "Podcasts" "News" "App Store" "System Preferences"; do
+        dockutil --remove "${app}"
+    done
+}
+
 # A nice defaults command reference:
 # http://rixstep.com/2/20060901,00.shtml
 function configureDock() {
@@ -125,6 +132,7 @@ function main() {
     installPrograms
     installVSCodeExtentions
     configureDock
+    cleanDockIcons
     configureFinder
     configureNightShift
     
