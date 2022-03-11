@@ -180,3 +180,6 @@ source $HOME/.dotfiles/zshscripts/zsh-history-substring-search.zsh
 
 eval "$(starship init zsh)"
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
