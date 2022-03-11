@@ -40,6 +40,8 @@ function configureDock() {
     defaults write com.apple.dock no-glass -boolean YES
     echo "! Dock to bottom corner"
     defaults write com.apple.dock pinning -string end
+    echo "! Disabling dock transparency"
+    defaults write com.apple.universalaccess reduceTransparency -bool true
     echo "! Use the scale effect to minimize"
     defaults write com.apple.dock mineffect scale
     echo "! Put dock on the right of the screen."
@@ -56,9 +58,7 @@ function configureDock() {
     echo "! Automatically show/hide the dock"
     defaults write com.apple.dock autohide -bool true
     echo "! Restarting Dock"
-    echo "! Setting bottom left corner to start screen saver."
-    defaults write com.apple.dock wvous-bl-corner -int 5
-    defaults write com.apple.dock wvous-bl-modifier -int 0
+
     killall Dock;
 }
 
@@ -79,7 +79,18 @@ function configureFinder() {
     defaults write com.apple.finder EmptyTrashSecurely -bool true
     echo "! Showing the ~/Library"
     chflags nohidden ~/Library
+    echo "! Show all file extensions"
+    defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+    
+    echo "! Enabling snap-to-grid for icon views"
+    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
     killall Finder;
+    
+    # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+    defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 }
 
 
@@ -95,6 +106,21 @@ function main() {
     installVSCodeExtentions
     configureDock
     configureFinder
+    
+    echo "! Configuring Activity Monitor"
+    # Show the main window when launching Activity Monitor
+    defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+    # Show all processes in Activity Monitor
+    defaults write com.apple.ActivityMonitor ShowCategory -int 0
+    
+    # Disable smart quotes as they’re annoying when typing code
+    defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+    # Disable smart dashes as they’re annoying when typing code
+    defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+
     echo "! Setting timezone (sudo)"
     sudo systemsetup -settimezone "America/New York" > /dev/null
 }
