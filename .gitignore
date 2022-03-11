@@ -30,3 +30,4 @@ openstack-ansible/roles/
 .config/velero
 .config/gcloud
 .config/tanzu
+.vim/plug
