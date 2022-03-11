@@ -58,10 +58,12 @@ cask "font-ubuntu-mono-nerd-font"
 cask "iterm2"
 cask "launchbar"
 cask "moom"
+cask "obsidian"
 cask "rectangle"
 cask "unetbootin", args: { appdir: "/Applications" }
 cask "vanilla"
 cask "visual-studio-code"
 cask "vmware-fusion"
+cask "zoom"
 mas "Fantastical", id: 975937182
 mas "Slack", id: 803453959
