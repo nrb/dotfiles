@@ -183,3 +183,7 @@ eval "$(starship init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# speedctl env vars
+export SPEEDCTL_HOME=/Users/nrb/.speedscale
+export PATH=$SPEEDCTL_HOME:$PATH
