@@ -68,7 +68,13 @@ PATH=$HOME/bin:$PATH:$HOME/go/bin
 #   * show colors instead of escape characters (-R)
 export LESS="-IMR"
 
-export EDITOR=vi
+if $(which nvim > /dev/null); then
+    export EDITOR=nvim
+    alias v=nvim
+else
+    export EDITOR=vi
+    alias v=vi
+fi
 
 # use a fancy terminal
 export TERM=xterm-256color

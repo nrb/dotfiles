@@ -49,8 +49,6 @@ alias pythong='echo lol; python'
 alias k=kubectl
 alias mkgotags='gotags -R -f tags .'
 alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
-alias ark='/home/nrb/go/src/github.com/heptio/velero/_output/bin/linux/amd64/velero'
-alias v='$HOME/go/src/github.com/vmware-tanzu/velero/_output/bin/$(uname | tr "[:upper:]" "[:lower:]")/amd64/velero'
 
 if [[ $UNAME == "Linux" ]]; then
     alias pbcopy='xclip -selection clipboard'
