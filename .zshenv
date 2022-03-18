@@ -70,10 +70,8 @@ export LESS="-IMR"
 
 if $(which nvim > /dev/null); then
     export EDITOR=nvim
-    alias v=nvim
 else
     export EDITOR=vi
-    alias v=vi
 fi
 
 # use a fancy terminal

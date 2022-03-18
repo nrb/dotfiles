@@ -42,20 +42,35 @@ alias psa='ps axwww'
 # grep through processes
 alias psg='psa | grep -i'
 
-
+## command shortcuts
 alias gti='git'
 alias ga='git add'
 alias pythong='echo lol; python'
 alias k=kubectl
 alias d=docker
 alias mkgotags='gotags -R -f tags .'
+alias v="$EDITOR"
 alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
+alias s=speedctl # source repo
+
+## config file shortcuts
+alias ec="$EDITOR $HOME/.dotfiles/.zshrc"
+alias sc="source $HOME/.dotfiles/.zshrc"
+alias enc="$EDITOR $HOME/.dotfiles/.config/nvim/init.vim"
+alias evc="$EDITOR $HOME/.dotfiles/.vimrc"
+
+## navigation shortcuts
+alias dots="$HOME/.dotfiles"
+alias ss=speedscale
 
 if [[ $UNAME == "Linux" ]]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
     alias open='xdg-open'
 fi
+
+# Configure certain file types to be opened with a program when created
+alias -s {go,ts,html,css,js,md,vim}="$EDITOR"
 
 
 # Changing Directories
@@ -185,4 +200,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # speedctl env vars
 export SPEEDCTL_HOME=/Users/nrb/.speedscale
 export PATH=$SPEEDCTL_HOME:$PATH
-alias s=speedscale
