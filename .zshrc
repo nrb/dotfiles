@@ -47,6 +47,7 @@ alias gti='git'
 alias ga='git add'
 alias pythong='echo lol; python'
 alias k=kubectl
+alias d=docker
 alias mkgotags='gotags -R -f tags .'
 alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
 
@@ -181,7 +182,7 @@ eval "$(starship init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
 # speedctl env vars
 export SPEEDCTL_HOME=/Users/nrb/.speedscale
 export PATH=$SPEEDCTL_HOME:$PATH
+alias s=speedscale
