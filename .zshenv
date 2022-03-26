@@ -60,7 +60,8 @@ typeset -U fpath
 rationalize-path fpath
 
 # Set our PATH up
-PATH=$HOME/bin:$PATH:$HOME/go/bin
+# Make sure homebrew is in there for the EDITOR check
+PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/go/bin
 
 # Enable a few things for less (This will also apply to man)
 #   * turn off case sensitive search (-I)
