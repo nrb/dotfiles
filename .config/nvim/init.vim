@@ -41,7 +41,7 @@ syntax on
 " Format go files on save.
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 " Fix up go imports on save.
-autocmd BufWritePre *.go lua goimports(1000)
+" autocmd BufWritePre *.go lua goimports(1000)
 
 set incsearch "persist search highlight
 set hlsearch "highlight as search matches
