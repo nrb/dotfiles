@@ -56,6 +56,8 @@ set expandtab "insert space when tab key is pressed
 set tabstop=4
 set shiftwidth=4
 
+set autoread " Make sure we auto-load changed files
+
 " Better display for messages
 set cmdheight=2
 
@@ -66,7 +68,6 @@ set updatetime=300
 set shortmess+=c
 
 " Set up a helpful, but minimal status bar
-" 
 set statusline=
 " Relative file path in the buffer
 set statusline+=%f
