@@ -62,9 +62,31 @@ set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
-
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
+
+" Set up a helpful, but minimal status bar
+" 
+set statusline=
+" Relative file path in the buffer
+set statusline+=%f
+" Modified, help, readonly, preview flags
+set statusline+=\ %m%h%r%w\ 
+" Styling
+set statusline+=%#PmenuThumb#
+" Display git branch in status line
+set statusline+=%{FugitiveStatusline()}
+" End styling
+set statusline+=%*
+" Seperate left/right
+set statusline+=%=
+" Report buffer
+set statusline+=%#PmenuThumb#
+" Display git branch in status line
+set statusline+=%([buf:\ %n]%)
+set statusline+=%*
+" line,column virtual column, percentage through window
+set statusline+=\ \ %(%l,%c%V\ %=\ %P%)
 
 
 " Show the buffer tabline if there are at least 2 tabs.
