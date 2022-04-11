@@ -13,11 +13,13 @@ Plug 'tpope/vim-rhubarb'
 " file browser
 Plug 'scrooloose/nerdtree'
 " fuzzy search with several integrations
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " A simple tab line
 Plug 'ap/vim-buftabline'
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 Plug 'neovim/nvim-lspconfig'
 call plug#end()
@@ -35,7 +37,7 @@ filetype plugin on "when a file is edited its plugin file is loaded (if there is
                    "detected filetype) 
 filetype indent on "maintain indentation
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 syntax on
 
 " Format go files on save.
@@ -47,7 +49,8 @@ set incsearch "persist search highlight
 set hlsearch "highlight as search matches
 set nu "enable line numbers
 set splitbelow "default open splits below (e.g. :GoDoc)
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< "sets chars representing "invisibles when
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:· "sets chars representing 
+                                                       "invisibles when
                                                        ""`set list!` is called
 set expandtab "insert space when tab key is pressed
 set tabstop=4
@@ -86,6 +89,9 @@ nmap <leader>w :bwipeout<cr>
 " Remap ^z to suspend the session, the redraw on resume. Should fix drawing
 " issues in tmux and doing ^z/fg
 noremap ^z :suspend<bar>:redraw!<cr>
+
+" Toggle highlighting
+:nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"t
 
 " Auto complete to tab (this is breaking if I use it for literal tabs, though)
 "inoremap <TAB> <C-X><C-O>
