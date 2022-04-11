@@ -10,14 +10,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 " builds on fugitive to work with github
 Plug 'tpope/vim-rhubarb'
-" file browser
-Plug 'scrooloose/nerdtree'
 " fuzzy search with several integrations
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " A simple tab line
 Plug 'ap/vim-buftabline'
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 Plug 'neovim/nvim-lspconfig'
 call plug#end()
@@ -30,12 +30,13 @@ set completeopt=noinsert,menuone,noselect
 " -------------------------------------------------------------------------------------------------
 " settings
 " -------------------------------------------------------------------------------------------------
+set hidden " Allow vim to hide buffers rather than completely closing them
 filetype on "detect files based on type
 filetype plugin on "when a file is edited its plugin file is loaded (if there is one for the 
                    "detected filetype) 
 filetype indent on "maintain indentation
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 syntax on
 
 " Format go files on save.
@@ -47,11 +48,14 @@ set incsearch "persist search highlight
 set hlsearch "highlight as search matches
 set nu "enable line numbers
 set splitbelow "default open splits below (e.g. :GoDoc)
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< "sets chars representing "invisibles when
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:· "sets chars representing 
+                                                       "invisibles when
                                                        ""`set list!` is called
 set expandtab "insert space when tab key is pressed
 set tabstop=4
 set shiftwidth=4
+
+set autoread " Make sure we auto-load changed files
 
 " Better display for messages
 set cmdheight=2
@@ -59,9 +63,30 @@ set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
-
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
+
+" Set up a helpful, but minimal status bar
+set statusline=
+" Relative file path in the buffer
+set statusline+=%f
+" Modified, help, readonly, preview flags
+set statusline+=\ %m%h%r%w\ 
+" Styling
+set statusline+=%#PmenuThumb#
+" Display git branch in status line
+set statusline+=%{FugitiveStatusline()}
+" End styling
+set statusline+=%*
+" Seperate left/right
+set statusline+=%=
+" Report buffer
+set statusline+=%#PmenuThumb#
+" Display git branch in status line
+set statusline+=%([buf:\ %n]%)
+set statusline+=%*
+" line,column virtual column, percentage through window
+set statusline+=\ \ %(%l,%c%V\ %=\ %P%)
 
 
 " Show the buffer tabline if there are at least 2 tabs.
@@ -86,6 +111,9 @@ nmap <leader>w :bwipeout<cr>
 " Remap ^z to suspend the session, the redraw on resume. Should fix drawing
 " issues in tmux and doing ^z/fg
 noremap ^z :suspend<bar>:redraw!<cr>
+
+" Toggle highlighting
+:nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"t
 
 " Auto complete to tab (this is breaking if I use it for literal tabs, though)
 "inoremap <TAB> <C-X><C-O>

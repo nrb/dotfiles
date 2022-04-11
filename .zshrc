@@ -134,7 +134,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # tab completion directories, without full path.
-cdpath=($HOME/projects)
+cdpath=($HOME/projects $HOME)
 
 # Completions
 #############
