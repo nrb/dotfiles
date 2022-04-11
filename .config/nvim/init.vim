@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 " builds on fugitive to work with github
 Plug 'tpope/vim-rhubarb'
-" file browser
-Plug 'scrooloose/nerdtree'
 " fuzzy search with several integrations
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
