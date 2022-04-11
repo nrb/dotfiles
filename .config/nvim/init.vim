@@ -30,6 +30,7 @@ set completeopt=noinsert,menuone,noselect
 " -------------------------------------------------------------------------------------------------
 " settings
 " -------------------------------------------------------------------------------------------------
+set hidden " Allow vim to hide buffers rather than completely closing them
 filetype on "detect files based on type
 filetype plugin on "when a file is edited its plugin file is loaded (if there is one for the 
                    "detected filetype) 
