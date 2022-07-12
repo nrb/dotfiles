@@ -5,7 +5,7 @@ minikube() {
     case $1 in
         start)
             shift
-            command minikube start --cni=true --memory=8g --cpus=4 --disk-size=128g --vm=true "$@"
+            command minikube start --memory=8g --cpus=4 --disk-size=128g --vm=true "$@"
             ;;
         *)
             command minikube "$@";;
