@@ -43,6 +43,10 @@ if [ -d /opt/local/share/zsh/$ZSH_VERSION ]; then
     fpath+=(/opt/local/share/zsh/$ZSH_VERSION*/**/*(/))
 fi
 
+if [ -d $HOME/.cargo/bin ]; then
+    fpath+=($HOME/.cargo/bin) 
+fi
+
 # Set the lowest common options
 fpath+=(
     /usr/local/share/zsh/functions
