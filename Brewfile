@@ -14,7 +14,6 @@ brew "cask"
 brew "go"
 brew "dep"
 brew "docker"
-brew "dockutil"
 brew "fd"
 brew "gh"
 brew "git"
@@ -65,5 +64,4 @@ cask "vanilla"
 cask "visual-studio-code"
 cask "vmware-fusion"
 cask "zoom"
-mas "Fantastical", id: 975937182
 mas "Slack", id: 803453959
