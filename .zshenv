@@ -1,4 +1,4 @@
-# from http://zsh.dotsrc.org/Contrib/startup/users/debbiep/dot.zshenv
+
 # rationalize-path()
 # Later we'll need to trim down the paths that follow because the ones
 # given here are for all my accounts, some of which have unusual
@@ -105,4 +105,7 @@ export GOGITHUB=$GOSRC/github.com
 export GGH=$GOGITHUB
 export TANZU=$GOSRC/github.com/vmware-tanzu
 export MYGO=$GOGITHUB/nrb
-. "$HOME/.cargo/env"
+
+if [ -f $HOME/.cargo/env ]; then
+	source $HOME/.cargo/env
+fi
