@@ -1,16 +1,3 @@
-# Minikube needs CNI so pods can talk to each other.
-# Make the start command receive all the arguments up front since
-# this isn't a config setting.
-minikube() {
-    case $1 in
-        start)
-            shift
-            command minikube start --memory=8g --cpus=4 --disk-size=128g --vm=true "$@"
-            ;;
-        *)
-            command minikube "$@";;
-    esac
-}
 
 if $(which minikube > /dev/null); then
     eval $(minikube docker-env)
