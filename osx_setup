@@ -46,6 +46,9 @@ function installHomebrew() {
 
 function installPrograms() {
     brew bundle
+    # The swift version of dockutil isn't in homebrew, so download it and install it to our home folder so we don't need sudo.
+    curl -k https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > dockutil.pkg
+    installer -allowUntrusted -pkg ./dockutil.pkg -target CurrentUserHomeDirectory
 }
 
 function cleanDockIcons() {
