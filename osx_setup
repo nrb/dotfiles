@@ -14,7 +14,7 @@ function installDevTools() {
     echo "!! Installing XCode command line tools"
     xcode-select --install;
     echo "!! Sleeping for 10 minutes to allow XCode to install."
-    sleep 10 m;
+    sleep 600;
 }
 
 function installHomebrew() {
