@@ -31,10 +31,6 @@ function installPrograms() {
     brew bundle
 }
 
-function installVSCodeExtentions() {
-    ./install_code_extensions.sh
-}
-
 function cleanDockIcons() {
     echo "! Cleaning up default dock icons as of Monterey"
     for app in "Launchpad" "Safari" "Messages" "Maps" "Photos" "FaceTime" "Calendar" "Contacts" "Reminders" "Notes" "TV" "Music" "Podcasts" "News" "App Store" "System Preferences" "Downloads"; do
