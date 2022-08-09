@@ -17,6 +17,17 @@ function installDevTools() {
     sleep 600;
 }
 
+function cloneDotfiles() {
+    if [[ -e $HOME/.dotfiles ]]
+    then
+        return
+    fi
+
+    # Clone with the login-free HTTP URL first, then update our local origin URL
+    git clone https://github.com/nrb/dotfiles.git $HOME/.dotfiles
+    git remote set-url origin git@github.com:nrb/dotfiles.git
+}
+
 function installHomebrew() {
     if [ -e /usr/local/bin/brew ]
     then
@@ -124,6 +135,7 @@ function main() {
         exit 1
     fi
     installDevTools
+    cloneDotfiles
     installHomebrew
     installPrograms
     installVSCodeExtentions
