@@ -28,6 +28,12 @@ function cloneDotfiles() {
     git remote set-url origin git@github.com:nrb/dotfiles.git
 }
 
+function installNvimPlugins() {
+    # vim-plug is downloaded in the nvim init.vim file
+    # Run plugin installation, then exit
+    nvim -i NONE +PlugInstall +qa
+}
+
 function installHomebrew() {
     if [ -e /usr/local/bin/brew ]
     then
@@ -138,7 +144,8 @@ function main() {
     cloneDotfiles
     installHomebrew
     installPrograms
-    installVSCodeExtentions
+    installNvimPlugins
+
     configureDock
     cleanDockIcons
     configureFinder
