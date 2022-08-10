@@ -106,6 +106,10 @@ export GGH=$GOGITHUB
 export TANZU=$GOSRC/github.com/vmware-tanzu
 export MYGO=$GOGITHUB/nrb
 
+if [ -f /opt/homebrew/bin/brew ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if [ -f $HOME/.cargo/env ]; then
 	source $HOME/.cargo/env
 fi
