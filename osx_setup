@@ -25,6 +25,7 @@ function cloneDotfiles() {
 
     # Clone with the login-free HTTP URL first, then update our local origin URL
     git clone https://github.com/nrb/dotfiles.git $HOME/.dotfiles
+    cd $HOME/.dotfiles
     git remote set-url origin git@github.com:nrb/dotfiles.git
 }
 
