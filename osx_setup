@@ -36,25 +36,27 @@ function installNvimPlugins() {
 }
 
 function installHomebrew() {
-    if [ -e /usr/local/bin/brew ]
+    if [ -e /opt/homebrew/bin/brew ]
     then
         return
     fi
     echo "!! Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew doctor
 }
 
 function installPrograms() {
     brew bundle
     # The swift version of dockutil isn't in homebrew, so download it and install it to our home folder so we don't need sudo.
-    curl -k https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > dockutil.pkg
+    echo "! Installing dockutil"
+    curl -k https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg --silent --output dockutil.pkg
     installer -allowUntrusted -pkg ./dockutil.pkg -target CurrentUserHomeDirectory
 }
 
 function cleanDockIcons() {
     echo "! Cleaning up default dock icons as of Monterey"
-    for app in "Launchpad" "Safari" "Messages" "Maps" "Photos" "FaceTime" "Calendar" "Contacts" "Reminders" "Notes" "TV" "Music" "Podcasts" "News" "App Store" "System Preferences" "Downloads"; do
+    for app in "Launchpad" "Safari" "Messages" "Maps" "Photos" "FaceTime" "Calendar" "Contacts" "Reminders" "Notes" "TV" "Music" "Podcasts" "News" "App Store" "System Preferences" "Downloads" "Keynote" "Numbers" "Pages"; do
         dockutil --remove "${app}"
     done
 }
