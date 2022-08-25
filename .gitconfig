@@ -46,4 +46,6 @@
 [push]
     default = tracking
 [format]
-	signOff = true
+    signOff = true
+[rebase]
+    autosquash = true
