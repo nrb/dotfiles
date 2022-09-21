@@ -192,5 +192,8 @@ source $HOME/.dotfiles/zshscripts/zsh-history-substring-search.zsh
 
 eval "$(starship init zsh)"
 
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"

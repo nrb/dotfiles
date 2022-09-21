@@ -65,7 +65,7 @@ rationalize-path fpath
 
 # Set our PATH up
 # Make sure homebrew is in there for the EDITOR check
-PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/go/bin
+PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Enable a few things for less (This will also apply to man)
 #   * turn off case sensitive search (-I)
@@ -82,9 +82,6 @@ fi
 # use a fancy terminal
 export TERM=xterm-256color
 
-# extra per environment settings
-source $HOME/.zshenv_extras
-
 # History settings
 ##################
 HISTSIZE=3000
@@ -98,13 +95,6 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE="True"
 
 # Shortcuts
 export P=~/projects
-export GOPATH=$HOME/go
-export G=$GOPATH
-export GOSRC=$HOME/go/src/
-export GOGITHUB=$GOSRC/github.com
-export GGH=$GOGITHUB
-export TANZU=$GOSRC/github.com/vmware-tanzu
-export MYGO=$GOGITHUB/nrb
 
 if [ -f /opt/homebrew/bin/brew ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
