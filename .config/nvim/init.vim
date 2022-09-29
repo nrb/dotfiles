@@ -29,6 +29,11 @@ Plug 'morhetz/gruvbox'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
+Plug 'itspriddle/vim-shellcheck'
+
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+
 Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
@@ -198,8 +203,6 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
@@ -302,4 +305,5 @@ end
     end
   end
 
+require('go').setup()
 EOF
