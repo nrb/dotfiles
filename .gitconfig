@@ -33,6 +33,7 @@
     remotes = remote -v
     furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/$(git rev-parse --abbrev-ref HEAD)"
     fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+    pom = push origin main
 [user]
     email = nolan@nbrubaker.com
     name = Nolan Brubaker
