@@ -239,6 +239,7 @@ nvim_lsp.gopls.setup{
     settings = {
       gopls = {
           experimentalPostfixCompletions = true,
+          usePlaceholders = true,
           analyses = {
             unusedparams = true,
             shadow = true,
@@ -307,6 +308,22 @@ end
       end
     end
   end
+
+-- Calculate the current Go package, and search it for symbols.
+function go_pkg_symbols()
+    -- % - current buffer
+    -- p - full path
+    -- h - head (everything but file name)
+    -- t - tail (last directory in path)
+    pkg = vim.fn.expand('%:p:h:t')
+
+    -- path_display is an option for the entry_maker. It turns off file path display.
+    -- symbol_width is an option for the entry_maker. Default is 25, make it longer cause the package name is prepended to symbols.
+    -- see telescope/lua/telescope/make_entry.lua
+    require('telescope.builtin').lsp_workspace_symbols({query = pkg, path_display = { "hidden" }, symbol_width=60})
+end
+
+vim.api.nvim_set_keymap('n', '<leader>fs', '', { noremap=true, silent=true, callback=go_pkg_symbols })
 
 require('go').setup()
 EOF
