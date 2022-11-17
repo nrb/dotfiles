@@ -1,0 +1,87 @@
+""" Set up clipboard to share the system one.
+set clipboard+=unnamed
+set clipboard+=indeaput
+
+""" Share bookmarks between IDE and vim
+set ideamarks
+
+""" Set up editing and reload shorcuts in the editor itself.
+""" Use \ instead of leader since it shouldn't be an action I use a ton
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+let mapleader=","
+
+""" Distraction Free Mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+""" Window Navigation
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+""" Tell jetbrains to let vim manage this shortcut
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+nnoremap <Leader>n :action NextTab<CR>
+nnoremap <Leader>p :action PreviousTab<CR>
+
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+
+""" Editing
+set ideajoin
+set idearefactormode=keep
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>= :action ReformatCode<CR>
+nnoremap <leader>o :action OptimizeImports<CR>
+
+nnoremap <leader>R :action RecentFiles<CR>
+nnoremap <leader>l :action RecentLocations<CR>
+nnoremap <leader>h :action LocalHistory.ShowHistory<CR>
+
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+
+
+""" Searching and Source Code Navigation
+set incsearch
+
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+
+nnoremap <c-s> :action FileStructurePopup<CR>
+nnoremap <leader>b :action ShowNavBar<CR>
+
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GoToDeclaration<CR>
+nnoremap gD :action GoToTypeDefinition<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap gt :action RecentFiles<CR>
+nnoremap gr :action FindUsages<CR>
+
+""" Tool windows
+nnoremap <c-p> :action JumpToLastWindow<CR>
+nnoremap <c-x> :action HideAllWindows<CR>
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
