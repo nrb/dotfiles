@@ -32,3 +32,4 @@ openstack-ansible/roles/
 .config/tanzu
 .config/gh/hosts.yml
 .vim/plugged
+.go-version
