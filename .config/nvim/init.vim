@@ -55,13 +55,13 @@ colorscheme gruvbox
 syntax on
 
 " Format go files on save.
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua vim.lsp.buf.format()
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Fix up go imports on save.
 autocmd BufWritePre *.go lua goimports(1000)
 
 " Format js files on save
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.js lua vim.lsp.buf.format()
 autocmd FileType js setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 set incsearch "persist search highlight
@@ -226,7 +226,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d','<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
 end
 
