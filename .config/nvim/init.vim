@@ -153,6 +153,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " Auto complete to tab (this is breaking if I use it for literal tabs, though)
 "inoremap <TAB> <C-X><C-O>
 
+" Easier to remember jumplist commands
+nnoremap gb <C-o>
+nnoremap gf <C-i>
+
 " disable vim's autoincrement/decrement
 map <C-a> <Nop>
 map <C-x> <Nop>
