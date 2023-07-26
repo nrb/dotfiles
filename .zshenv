@@ -65,7 +65,7 @@ rationalize-path fpath
 
 # Set our PATH up
 # Make sure homebrew is in there for the EDITOR check
-PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/nbrubake/Library/Python/3.11/bin:$PATH
 
 # Enable a few things for less (This will also apply to man)
 #   * turn off case sensitive search (-I)
