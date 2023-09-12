@@ -33,3 +33,4 @@ openstack-ansible/roles/
 .config/gh/hosts.yml
 .vim/plugged
 .go-version
+.idea/
