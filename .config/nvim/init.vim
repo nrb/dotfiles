@@ -315,19 +315,24 @@ end
 
 -- Calculate the current Go package, and search it for symbols.
 function go_pkg_symbols()
-    -- % - current buffer
+    -- % - current buffer (based on path given when the buffer was open)
     -- p - full path
     -- h - head (everything but file name)
-    -- t - tail (last directory in path)
-    pkg = vim.fn.expand('%:p:h:t')
+    -- t - tail (last directory in path, ignored because there can be conflicts)
+    local buf = vim.fn.expand('%:p:h')
+    local home = vim.fn.expand('$HOME')
+
+    local pkg, subs = string.gsub(buf, home, "")
+    print(pkg)
 
     -- path_display is an option for the entry_maker. It turns off file path display.
     -- symbol_width is an option for the entry_maker. Default is 25, make it longer cause the package name is prepended to symbols.
     -- see telescope/lua/telescope/make_entry.lua
-    require('telescope.builtin').lsp_workspace_symbols({query = pkg, path_display = { "hidden" }, symbol_width=60})
+    --require('telescope.builtin').lsp_workspace_symbols({query = pkg, path_display = { "hidden" }, symbol_width=100})
 end
 
 vim.api.nvim_set_keymap('n', '<leader>fs', '', { noremap=true, silent=true, callback=go_pkg_symbols })
+vim.lsp.set_log_level("debug")
 
 require('go').setup()
 EOF
