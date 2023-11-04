@@ -45,9 +45,11 @@ alias psg='psa | grep -i'
 ## command shortcuts
 alias gti='git'
 alias ga='git add'
+alias gw='git worktree'
 alias pythong='echo lol; python'
 alias k=kubectl
 alias d=docker
+alias p=podman
 alias mkgotags='gotags -R -f tags .'
 alias v="$EDITOR"
 alias til='vim $HOME/til/$(date +%Y-%m-%d).md'
