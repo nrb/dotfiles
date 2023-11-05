@@ -1,0 +1,56 @@
+#!/usr/bin/env zsh
+set -e
+
+# This script installs a new version of go, along with common go utilities.
+
+
+if [[ -z $1 ]]; then
+    echo "No version specified. Run with a go version string (such as 1.21.3)"
+    exit
+fi
+
+if [[ ! -d $HOME/.goenv ]]; then
+    echo ".goenv directory not found, cloning." 
+    git clone https://github.com/syndbg/goenv.git $HOME/.goenv
+fi
+
+# Make sure we have the latest list of go versions
+pushd $HOME/.goenv
+git pull
+if [[ -z $(goenv install -l | grep $1) ]]; then
+    echo "Version $1 not valid"
+    exit
+fi
+popd
+
+# Install the go version and activate it so our tools will install correctly.
+goenv install $1
+goenv global $1
+
+# List of tools taken from go.nvim/lua/go/install.lua
+go install mvdan.cc/gofumpt@latest
+go install github.com/segmentio/golines@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/gorename@latest
+go install github.com/fatih/gomodifytags@latest
+go install golang.org/x/tools/gopls@latest
+go install github.com/cweill/gotests/...@latest
+go install github.com/koron/iferr@latest
+go install golang.org/x/tools/cmd/callgraph@latest
+go install golang.org/x/tools/cmd/guru@latest
+go install github.com/josharian/impl@latest
+go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+go install github.com/davidrjenni/reftools/cmd/fillswitch@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/onsi/ginkgo/v2/ginkgo@latest
+go install github.com/kyoh86/richgo@latest
+go install gotest.tools/gotestsum@latest
+go install github.com/golang/mock/mockgen@latest
+go install github.com/tmc/json-to-struct@latest
+go install github.com/abenz1267/gomvp@latest
+go install golang.org/x/vuln/cmd/govulncheck@latest
+go install github.com/abice/go-enum@latest
+
+# Rehash the stub binaries so goenv knows where to find the binaries
+goenv rehash
