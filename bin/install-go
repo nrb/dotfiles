@@ -51,6 +51,7 @@ go install github.com/tmc/json-to-struct@latest
 go install github.com/abenz1267/gomvp@latest
 go install golang.org/x/vuln/cmd/govulncheck@latest
 go install github.com/abice/go-enum@latest
+go install golang.org/x/tools/cmd/deadcode@latest
 
 # Rehash the stub binaries so goenv knows where to find the binaries
 goenv rehash
