@@ -207,3 +207,5 @@ export NVM_DIR="$HOME/.nvm"
 export PNPM_HOME="/Users/nbrubake/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+source /Users/nbrubake/.config/op/plugins.sh
