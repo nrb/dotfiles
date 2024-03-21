@@ -209,3 +209,6 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 source /Users/nbrubake/.config/op/plugins.sh
+
+# pipx installed scripts
+export PATH="$PATH:/Users/nbrubake/.local/bin"
