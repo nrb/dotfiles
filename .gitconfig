@@ -38,6 +38,7 @@
 [user]
     email = nolan@nbrubaker.com
     name = Nolan Brubaker
+	signingkey = 2EED772803E84726
 [merge]
     tool = vimdiff
 [diff]
