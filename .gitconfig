@@ -19,7 +19,8 @@
 	changed = green
 	untracked = cyan
 [alias]
-	st = status
+    st = status
+    stnv = status . -- ':!vendor'
 	ci = commit -vs
 	br = branch
 	co = checkout
