@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 " builds on fugitive to work with github
 Plug 'tpope/vim-rhubarb'
-" A simple tab line
-Plug 'ap/vim-buftabline'
+" A tabline interface
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 " Needed for Telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -24,10 +24,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
-
-" make typescript a little more livable
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 Plug 'itspriddle/vim-shellcheck'
 
@@ -199,7 +195,6 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local nvim_lsp = require('lspconfig')
-local null_ls = require("null-ls")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -228,13 +223,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>cl', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d','<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[d','<cmd>lua vim.diagnostic.jump({count=1, float=true})<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.jump({count=1, float=true})<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   -- TODO: setup a keymap to invoke GoCodeLenAct from go.nvim so CodeLenses can be triggered. It provides a nicer menu than the built-in LSP one.
-
 end
+
+-- Enable the buffer tab line
+vim.opt.termguicolors = true
+require("bufferline").setup{}
 
 -- Customize gopls outside the setup loop.
 nvim_lsp.gopls.setup{
@@ -255,38 +253,6 @@ nvim_lsp.gopls.setup{
     },
 }
 
--- Customize typescript's server outside the setup loop
-local buf_map = function(bufnr, mode, lhs, rhs, opts)
-    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
-        silent = true,
-    })
-end
-nvim_lsp.tsserver.setup({
-    on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-
-        local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup({})
-        ts_utils.setup_client(client)
-
-        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
-        buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
-        buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-
-        on_attach(client, bufnr)
-    end,
-})
-
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier
-    },
-    on_attach = on_attach
-})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
