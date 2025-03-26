@@ -111,3 +111,5 @@ fi
 
 # Openshift makefiles have issues with containers on arm64. Turn it off for now
 export NO_DOCKER=1
+
+alias docker=podman
