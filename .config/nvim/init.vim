@@ -54,7 +54,7 @@ syntax on
 autocmd BufWritePre *.go lua vim.lsp.buf.format()
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Fix up go imports on save.
-autocmd BufWritePre *.go lua goimports(1000)
+autocmd BufWritePre *.go lua goimports()
 
 " Format js files on save
 autocmd BufWritePre *.js lua vim.lsp.buf.format()
@@ -131,6 +131,7 @@ nmap <leader>T :enew<cr>
 
 nmap <leader>n :bnext<cr>
 nmap <leader>p :bprevious<cr>
+" collides with <leader>wl
 nmap <leader>w :bwipeout<cr>
 
 " Remap ^z to suspend the session, the redraw on resume. Should fix drawing
@@ -266,20 +267,28 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-  function goimports(timeoutms)
-    local params = vim.lsp.util.make_range_params()
+ function goimports()
+    -- enc was originally defined right before applying the workspace edit, but make_range_params wants it, too
+    local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+    local params = vim.lsp.util.make_range_params(0, enc)
     params.context = {only = {"source.organizeImports"}}
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-    for _, res in pairs(result or {}) do
+    -- From upstream:
+    -- buf_request_sync defaults to a 1000ms timeout. Depending on your
+    -- machine and codebase, you may want longer. Add an additional
+    -- argument after params if you find that you have to write the file
+    -- twice for changes to be saved.
+    -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+    -- I can use timeoutms to control that.
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+    for cid, res in pairs(result or {}) do
       for _, r in pairs(res.result or {}) do
         if r.edit then
-          vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
-        else
-          vim.lsp.buf.execute_command(r.command)
+          vim.lsp.util.apply_workspace_edit(r.edit, enc)
         end
       end
     end
-  end
+    vim.lsp.buf.format({async = false})
+end
 
 -- Calculate the current Go package, and search it for symbols.
 function go_pkg_symbols()
