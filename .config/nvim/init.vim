@@ -162,6 +162,9 @@ map <C-x> <Nop>
 " LSP configuration
 " -------------------------------------------------------------------------------------------------
 lua << EOF
+-- open vertical splits to the right
+vim.o.splitright = true
+
 -- Set up telescope for quick sorting
 require('telescope').setup {
     extensions = {
