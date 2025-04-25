@@ -140,9 +140,11 @@ function configureNightShift() {
     enabled=1
 
     # Change the settings directly in the core brightness plist (defaults doesn't deal with nested data structures well)
-    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueLightReductionAlgoOverride $algoOverride" $plistLoc
-    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueReductionEnabled $enabled" $plistLoc
-    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueLightReductionAlgoOverrideTimestamp `date`" $plistLoc
+    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:AutoBlueReductionEnabled $enabled" $plistLoc
+    sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueReductionSunScheduleAllowed $enabled" $plistLoc
+
+    sudo killall cfprefsd
+    sudo killall corebrightnessd
 }
 
 function installAsdfStuff() {
