@@ -145,6 +145,12 @@ function configureNightShift() {
     sudo /usr/libexec/PlistBuddy -c "Set :$currentUserUID:CBBlueReductionStatus:BlueLightReductionAlgoOverrideTimestamp `date`" $plistLoc
 }
 
+function installAsdfStuff() {
+    # Eventually this might be an array, but not right now
+    asdf plugin add golang
+    asdf install golang latest
+}
+
 function main() {
     if ! [[ "$OSTYPE" =~ ^darwin ]];
     then
@@ -156,6 +162,7 @@ function main() {
     installHomebrew
     installPrograms
     installNvimPlugins
+    installAsdfStuff
 
     configureDock
     cleanDockIcons
