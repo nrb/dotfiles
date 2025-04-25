@@ -47,7 +47,11 @@ function installHomebrew() {
 }
 
 function installPrograms() {
-    brew bundle
+    usefile="personal"
+    if [ "$USER" == "nbrubake" ]; then
+       usefile="work"
+    fi
+    brew bundle --file Brewfile.$usefile
     # The swift version of dockutil isn't in homebrew, so download it and install it to our home folder so we don't need sudo.
     echo "! Installing dockutil"
     curl -Lk https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg --silent --output /tmp/dockutil.pkg
