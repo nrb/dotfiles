@@ -202,11 +202,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/Users/nbrubake/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-source /Users/nbrubake/.config/op/plugins.sh
+source $HOME/.config/op/plugins.sh
 
 # pipx installed scripts
 export PATH="$PATH:/Users/nbrubake/.local/bin"
