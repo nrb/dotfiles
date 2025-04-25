@@ -7,7 +7,7 @@ fi
 
 case $1 in
     personal|work)
-        brew bundle dump --file Brewfile.$1
+        brew bundle dump -f --file Brewfile.$1
         ;;
     *)
         echo "Expected 'personal' or 'work'" >&2
