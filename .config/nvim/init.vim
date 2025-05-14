@@ -31,6 +31,9 @@ Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 
 Plug 'neovim/nvim-lspconfig'
+
+Plug 'ibhagwan/fzf-lua'
+Plug 'cuducos/yaml.nvim'
 call plug#end()
 
 
@@ -261,6 +264,7 @@ nvim_lsp.gopls.setup{
     },
 }
 
+require("yaml_nvim").setup({ ft = {"yaml", "bu", "butane" } })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
