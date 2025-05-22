@@ -41,6 +41,7 @@
 	signingkey = 2EED772803E84726
 [merge]
     tool = vimdiff
+	  renamelimit = 15345
 [diff]
     mnemonicprefix = true
     renames = copies
