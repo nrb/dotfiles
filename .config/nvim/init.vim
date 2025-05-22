@@ -71,8 +71,8 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:· "sets chars rep
                                                        "invisibles when
                                                        ""`set list!` is called
 set expandtab "insert space when tab key is pressed
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 set autoread " Make sure we auto-load changed files
 
