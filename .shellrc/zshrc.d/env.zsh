@@ -113,3 +113,8 @@ fi
 export NO_DOCKER=1
 
 alias docker=podman
+
+# Work settings that I don't want to commit to public repos
+if [ -f ./work_env.sh ]; then
+  source work_env.sh
+fi
