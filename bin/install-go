@@ -9,23 +9,18 @@ if [[ -z $1 ]]; then
     exit
 fi
 
-if [[ ! -d $HOME/.goenv ]]; then
-    echo ".goenv directory not found, cloning." 
-    git clone https://github.com/syndbg/goenv.git $HOME/.goenv
+if [[ -z $(which asdf) ]]; then
+  echo "asdf package manager not installed"
+  exit
 fi
 
-# Make sure we have the latest list of go versions
-pushd $HOME/.goenv
-git pull
-if [[ -z $(goenv install -l | grep $1) ]]; then
-    echo "Version $1 not valid"
-    exit
+if [[ -z $(asdf list golang | grep "$1") ]]; then
+  asdf install golang $1
 fi
-popd
 
 # Install the go version and activate it so our tools will install correctly.
-goenv install $1
-goenv global $1
+asdf install golang $1
+asdf set golang $1
 
 # List of tools taken from go.nvim/lua/go/install.lua
 go install mvdan.cc/gofumpt@latest
@@ -54,4 +49,4 @@ go install github.com/abice/go-enum@latest
 go install golang.org/x/tools/cmd/deadcode@latest
 
 # Rehash the stub binaries so goenv knows where to find the binaries
-goenv rehash
+asdf reshim golang
