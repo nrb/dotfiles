@@ -30,6 +30,8 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 
+Plug 'mrcjkb/rustaceanvim'
+
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'ibhagwan/fzf-lua'
@@ -196,7 +198,7 @@ require'nvim-treesitter.configs'.setup {
     "yaml",
     "html",
     "vim",
-    "bash"
+    "bash",
   },
   autotag = {
     enable = true,
@@ -268,7 +270,7 @@ require("yaml_nvim").setup({ ft = {"yaml", "bu", "butane" } })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer' }
+local servers = { 'pyright'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
