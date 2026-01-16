@@ -35,3 +35,4 @@ openstack-ansible/roles/
 .vim/plugged
 .go-version
 .idea/
+work_env.sh

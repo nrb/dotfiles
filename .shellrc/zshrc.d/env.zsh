@@ -1,3 +1,5 @@
+# Reference to our zsh rc directory if we need to reference any others
+ZSHRC_DIR=$HOME/.shellrc/zshrc.d/
 
 # rationalize-path()
 # Later we'll need to trim down the paths that follow because the ones
@@ -115,6 +117,6 @@ export NO_DOCKER=1
 alias docker=podman
 
 # Work settings that I don't want to commit to public repos
-if [ -f ./work_env.sh ]; then
+if [ -f ${ZSHRC_DIR}/work_env.sh ]; then
   source work_env.sh
 fi
