@@ -118,5 +118,5 @@ alias docker=podman
 
 # Work settings that I don't want to commit to public repos
 if [ -f ${ZSHRC_DIR}/work_env.sh ]; then
-  source work_env.sh
+  source ${ZSHRC_DIR}/work_env.sh
 fi
