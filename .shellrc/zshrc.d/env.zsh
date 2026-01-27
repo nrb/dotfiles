@@ -120,3 +120,5 @@ alias docker=podman
 if [ -f ${ZSHRC_DIR}/work_env.sh ]; then
   source ${ZSHRC_DIR}/work_env.sh
 fi
+
+export GPG_TTY=$(tty)
