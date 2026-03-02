@@ -32,8 +32,6 @@ Plug 'ray-x/guihua.lua'
 
 Plug 'mrcjkb/rustaceanvim'
 
-Plug 'neovim/nvim-lspconfig'
-
 Plug 'ibhagwan/fzf-lua'
 Plug 'cuducos/yaml.nvim'
 call plug#end()
@@ -182,7 +180,7 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzy_native')
 
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
   highlight = {
     enable = true,
   },
@@ -204,8 +202,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
-
-local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -248,7 +244,7 @@ vim.opt.termguicolors = true
 require("bufferline").setup{}
 
 -- Customize gopls outside the setup loop.
-nvim_lsp.gopls.setup{
+vim.lsp.config['gopls'] = {
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150
@@ -266,18 +262,21 @@ nvim_lsp.gopls.setup{
     },
 }
 
+vim.lsp.enable('gopls')
+
 require("yaml_nvim").setup({ ft = {"yaml", "bu", "butane" } })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright'}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  vim.lsp.config[lsp] = {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
+  vim.lsp.enable(lsp)
 end
 
  function goimports()
