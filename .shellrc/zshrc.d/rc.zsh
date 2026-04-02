@@ -205,7 +205,7 @@ export PATH="$PNPM_HOME:$PATH"
 # If brew's not installed, uh oh.
 source $(brew --prefix asdf)/libexec/asdf.sh
 
-source $HOME/.config/op/plugins.sh
+# source $HOME/.config/op/plugins.sh
 
 # pipx installed scripts
 export PATH="$PATH:/Users/nbrubake/.local/bin"
