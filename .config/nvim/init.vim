@@ -34,6 +34,8 @@ Plug 'mrcjkb/rustaceanvim'
 
 Plug 'ibhagwan/fzf-lua'
 Plug 'cuducos/yaml.nvim'
+
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 
@@ -239,45 +241,27 @@ local on_attach = function(client, bufnr)
   -- TODO: setup a keymap to invoke GoCodeLenAct from go.nvim so CodeLenses can be triggered. It provides a nicer menu than the built-in LSP one.
 end
 
+vim.lsp.config("*", {
+  flags = {
+    debounce_text_changes = 150
+  },
+  on_attach = on_attach,
+})
+
+require("lspconfig")
+
+local servers = {
+  "gopls", -- Configured in .config/nvim/lsp/gopls.lua
+  "pyright",
+}
+
+vim.lsp.enable(servers)
+
 -- Enable the buffer tab line
 vim.opt.termguicolors = true
 require("bufferline").setup{}
 
--- Customize gopls outside the setup loop.
-vim.lsp.config['gopls'] = {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150
-    },
-    settings = {
-      gopls = {
-          experimentalPostfixCompletions = true,
-          usePlaceholders = true,
-          analyses = {
-            unusedparams = true,
-            shadow = true,
-         },
-         staticcheck = true,
-        },
-    },
-}
-
-vim.lsp.enable('gopls')
-
 require("yaml_nvim").setup({ ft = {"yaml", "bu", "butane" } })
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright'}
-for _, lsp in ipairs(servers) do
-  vim.lsp.config[lsp] = {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-  vim.lsp.enable(lsp)
-end
 
  function goimports()
     -- enc was originally defined right before applying the workspace edit, but make_range_params wants it, too
