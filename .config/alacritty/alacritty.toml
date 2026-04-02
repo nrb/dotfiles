@@ -79,3 +79,8 @@ live_config_reload = true
 
 [terminal.shell]
 program = "/bin/zsh"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
