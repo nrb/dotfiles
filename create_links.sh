@@ -180,6 +180,11 @@ dotfile="init.vim"
 to_create="$HOME/.config/nvim/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
 
+actual_dotfile="$dotfiles_loc/.claude/CLAUDE.md"
+dotfile="CLAUDE.md"
+to_create="$HOME/.claude/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
 # Set up our projects directory in case it's not already there.
 if [[ -d $HOME/projects ]]; then
     mkdir $HOME/projects
