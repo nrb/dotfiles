@@ -1,4 +1,8 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "MAX_THINKING_TOKENS": "128000"
+  },
   "permissions": {
     "allow": [
       "Bash(rg:*)",
@@ -9,10 +13,19 @@
   },
   "model": "claude-sonnet-4-6",
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "ci@ai-helpers": true,
+    "must-gather@ai-helpers": true,
+    "jira@ai-helpers": true,
+    "golang@ai-helpers": true,
+    "workspaces@ai-helpers": true
   },
-  "env": {
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": 1, "MAX_THINKING_TOKENS": "128000"
+  "extraKnownMarketplaces": {
+    "ai-helpers": {
+      "source": {
+        "source": "github",
+        "repo": "openshift-eng/ai-helpers"
+      }
+    }
   }
-
 }
