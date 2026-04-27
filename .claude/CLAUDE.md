@@ -30,3 +30,9 @@ Example targets might be:
 
     - `make unit`
     - `make test`
+
+## Test assertions
+
+When writing ginkgo-based tests, do NOT use the `To(BeTrue())` matcher in an assertion. Try to use a more specific matcher to better convey intent.
+If no specific matcher is present, be sure to write the assertion with `(To(BeTrue(), <description of why the assertion failed>)`.
+
