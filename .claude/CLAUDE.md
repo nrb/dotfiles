@@ -36,3 +36,6 @@ Example targets might be:
 When writing ginkgo-based tests, do NOT use the `To(BeTrue())` matcher in an assertion. Try to use a more specific matcher to better convey intent.
 If no specific matcher is present, be sure to write the assertion with `(To(BeTrue(), <description of why the assertion failed>)`.
 
+# Summarizing
+
+Don't use "key points," "key observations," or "key ideas." Find some other synonym for important things.
