@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/pack/nrb/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/pack/nrb/start/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/pack/nrb/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
