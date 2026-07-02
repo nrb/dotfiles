@@ -203,7 +203,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # If brew's not installed, uh oh.
-source $(brew --prefix asdf)/libexec/asdf.sh
+eval $(asdf completion zsh)
 
 # source $HOME/.config/op/plugins.sh
 
