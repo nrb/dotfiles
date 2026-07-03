@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "npm:pi-claude-auth"
+  ],
+  "lastChangelogVersion": "0.80.3",
+  "theme": "dark",
+  "enabledModels": [
+    "anthropic/claude-opus-4-8",
+    "anthropic/claude-sonnet-4-6",
+    "anthropic/claude-sonnet-5",
+    "anthropic/claude-haiku-4-5",
+    "anthropic/claude-sonnet-4-5"
+  ],
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-sonnet-4-6"
+}

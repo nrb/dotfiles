@@ -181,6 +181,11 @@ dotfile="init.vim"
 to_create="$HOME/.config/nvim/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
 
+actual_dotfile="$dotfiles_loc/dotpi"
+dotfile=".pi"
+to_create="$HOME/.pi"
+linkDotfile $dotfile $to_create $actual_dotfile
+
 actual_dotfile="$dotfiles_loc/.claude/CLAUDE.md"
 dotfile="CLAUDE.md"
 to_create="$HOME/.claude/$dotfile"

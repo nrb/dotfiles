@@ -1,0 +1,8 @@
+# Credentials & auth tokens
+agent/auth.json
+
+# Installed npm packages (runtime, not config)
+agent/npm/
+
+# Session history
+agent/sessions/
