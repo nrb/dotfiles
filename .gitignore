@@ -35,4 +35,6 @@ openstack-ansible/roles/
 .vim/plugged
 .go-version
 .idea/
+.pi/agent/auth.json
+.pi/agent/npm
 work_env.sh

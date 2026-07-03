@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.80.3",
+  "theme": "dark",
+  "packages": [
+    "npm:pi-claude-auth"
+  ],
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-sonnet-4-6",
+  "defaultThinkingLevel": "medium"
+}
