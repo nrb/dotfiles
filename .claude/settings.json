@@ -11,7 +11,12 @@
       "Bash(ls:*)",
       "Bash(mkdir -p ~/.local/bin ~/.claude)",
       "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
-      "Bash(chmod +x ~/.local/bin/starship-claude)"
+      "Bash(chmod +x ~/.local/bin/starship-claude)",
+      "Bash(git status *)",
+      "Bash(go test *)",
+      "Bash(rg *)",
+      "Bash(make build)",
+      "Bash(make test)"
     ]
   },
   "model": "claude-sonnet-4-6",
@@ -31,5 +36,6 @@
         "repo": "openshift-eng/ai-helpers"
       }
     }
-  }
+  },
+  "effortLevel": "medium"
 }
