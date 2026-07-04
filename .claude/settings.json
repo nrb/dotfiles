@@ -8,7 +8,12 @@
       "Bash(rg:*)",
       "Bash(git log:*)",
       "Bash(grep:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git status *)",
+      "Bash(go test *)",
+      "Bash(rg *)",
+      "Bash(make build)",
+      "Bash(make test)"
     ]
   },
   "model": "claude-sonnet-4-6",
@@ -27,5 +32,6 @@
         "repo": "openshift-eng/ai-helpers"
       }
     }
-  }
+  },
+  "effortLevel": "medium"
 }
