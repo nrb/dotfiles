@@ -8,7 +8,10 @@
       "Bash(rg:*)",
       "Bash(git log:*)",
       "Bash(grep:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(mkdir -p ~/.local/bin ~/.claude)",
+      "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
+      "Bash(chmod +x ~/.local/bin/starship-claude)"
     ]
   },
   "model": "claude-sonnet-4-6",
@@ -18,7 +21,8 @@
     "must-gather@ai-helpers": true,
     "jira@ai-helpers": true,
     "golang@ai-helpers": true,
-    "workspaces@ai-helpers": true
+    "workspaces@ai-helpers": true,
+    "gopls-lsp@ai-helpers": true
   },
   "extraKnownMarketplaces": {
     "ai-helpers": {
