@@ -40,4 +40,7 @@ If no specific matcher is present, be sure to write the assertion with `(To(BeTr
 
 Don't use "key points," "key observations," or "key ideas." Find some other synonym for important things.
 
+# Agents
+Agents should never point a branch or worktree to the remote main branch.
+
 @RTK.md
