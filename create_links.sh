@@ -196,6 +196,16 @@ dotfile="settings.json"
 to_create="$HOME/.claude/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
 
+actual_dotfile="$dotfiles_loc/.claude/RTK.md"
+dotfile="RTK.md"
+to_create="$HOME/.claude/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
+actual_dotfile="$dotfiles_loc/.claude/starship.toml"
+dotfile="starship.toml"
+to_create="$HOME/.claude/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
 # Set up our projects directory in case it's not already there.
 if [[ -d $HOME/projects ]]; then
     mkdir $HOME/projects

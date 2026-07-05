@@ -1,41 +1,39 @@
 {
-  "env": {
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-    "MAX_THINKING_TOKENS": "128000"
-  },
   "permissions": {
-    "allow": [
-      "Bash(rg:*)",
-      "Bash(git log:*)",
-      "Bash(grep:*)",
-      "Bash(ls:*)",
-      "Bash(mkdir -p ~/.local/bin ~/.claude)",
-      "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
-      "Bash(chmod +x ~/.local/bin/starship-claude)",
-      "Bash(git status *)",
-      "Bash(go test *)",
-      "Bash(rg *)",
-      "Bash(make build)",
-      "Bash(make test)"
-    ]
+    "defaultMode": "default"
   },
-  "model": "claude-sonnet-4-6",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.local/bin/starship-claude",
+    "padding": 0
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "ci@ai-helpers": true,
-    "must-gather@ai-helpers": true,
-    "jira@ai-helpers": true,
-    "golang@ai-helpers": true,
-    "workspaces@ai-helpers": true,
-    "gopls-lsp@ai-helpers": true
+    "starship-claude@starship-claude": true
   },
   "extraKnownMarketplaces": {
-    "ai-helpers": {
+    "starship-claude": {
       "source": {
         "source": "github",
-        "repo": "openshift-eng/ai-helpers"
+        "repo": "martinemde/starship-claude"
       }
     }
   },
-  "effortLevel": "medium"
+  "effortLevel": "high",
+  "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
+  "editorMode": "vim",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  }
 }

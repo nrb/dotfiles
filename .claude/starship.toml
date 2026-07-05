@@ -1,0 +1,68 @@
+# Minimal Nerd Template
+"$schema" = "https://starship.rs/config-schema.json"
+
+palette = "custom"
+add_newline = false
+
+# dir git model context cost
+format = """
+$directory \
+$git_branch$git_status \
+${env_var.CLAUDE_MODEL_NERD} \
+${env_var.CLAUDE_CONTEXT} \
+${env_var.CLAUDE_COST}\
+"""
+
+[directory]
+style = "fg:directory"
+format = "[$path]($style)"
+truncation_length = 2
+truncate_to_repo = true
+
+[git_branch]
+symbol = ""
+style = "fg:git_branch"
+format = "[$branch]($style)"
+
+[git_status]
+style = "fg:git_status"
+format = "[($all_status$ahead_behind)]($style)"
+
+[env_var.CLAUDE_MODEL_NERD]
+variable = "CLAUDE_MODEL_NERD"
+format = "[$env_value]($style)"
+style = "fg:model"
+
+[env_var.CLAUDE_CONTEXT]
+variable = "CLAUDE_CONTEXT"
+format = "[$env_value]($style)"
+style = "fg:context"
+
+[env_var.CLAUDE_COST]
+variable = "CLAUDE_COST"
+format = "[$env_value]($style)"
+style = "fg:cost"
+
+## Custom palette
+#
+
+# Gruvbox Dark
+[palettes.custom]
+claude = "#D97757"
+claude_bg = "#282828"
+
+directory = "#83a598"
+directory_bg = "#282828"
+
+git_branch = "#b16286"
+git_status = "#d3869b"
+git_bg = "#3c3836"
+
+model = "#458588"
+model_bg = "#282828"
+
+context = "#d79921"
+context_bg = "#3c3836"
+
+cost = "#689d6a"
+cost_bg = "#504945"
