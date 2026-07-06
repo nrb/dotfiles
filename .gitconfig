@@ -38,7 +38,7 @@
 [user]
   email = nolan@nbrubaker.com
   name = Nolan Brubaker
-  signingkey = 2EED772803E84726
+  signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTtu0XiK0Pxqs1L1wxLyBTn5l62JCvS38As2RVKaNCygLL0ApMhXurkJ3n1vDuy3b8VZYeVc3210+jgsj6OqaHZ5kcOJPtjTlCsQKj+Nk8w5kMXJasYJQgxoGHxxNM9ewWmCCgYJ2PacMysIhF5XoqnOKd1N95tJd9R8a1LFmhmn1opcucrce4ch8x01SfK/FNDF2Lv/NeYEECMtqBzG2JASOW0fgyu3rb24iXIx5jfWPshoeCOpHBSCLTj7KpiZR9BMEhpNV/RhXLEaffv6Zoyf0MzMPVYhVrOiVYaLopqHHVwHSO5fRMxftK2KqJlGzoaCzOj5HQjZtmlZmMQfKt
 [merge]
   tool = vimdiff
   renamelimit = 15345
@@ -55,6 +55,12 @@
   autosquash = true
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
