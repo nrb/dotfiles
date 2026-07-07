@@ -1,7 +1,7 @@
 [core]
-    editor = nvim
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
+  editor = nvim
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
 [color]
 	ui = auto
 [color "branch"]
@@ -19,40 +19,40 @@
 	changed = green
 	untracked = cyan
 [alias]
-    st = status
-    stnv = status . -- ':!vendor'
-	ci = commit -vs
-	br = branch
-	co = checkout
-	df = diff
-    dfs = !git --no-pager diff --stat
-    l = log --online
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    lga = log --graph --pretty=format:'%Cred%h%Creset %Cblue%an%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --branches --remotes
-    branches = branch -a
-    last = log -1
-    remotes = remote -v
-    furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/$(git rev-parse --abbrev-ref HEAD)"
-    fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
-    pom = push origin main
+  st = status
+  stnv = status . -- ':!vendor'
+  ci = commit -vs
+  br = branch
+  co = checkout
+  df = diff
+  dfs = !git --no-pager diff --stat
+  l = log --online
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lga = log --graph --pretty=format:'%Cred%h%Creset %Cblue%an%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --branches --remotes
+  branches = branch -a
+  last = log -1
+  remotes = remote -v
+  furb = "!echo \"Fetch upstream\"; git fetch upstream; echo \"Rebase\"; git rebase upstream/$(git rev-parse --abbrev-ref HEAD)"
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+  pom = push origin main
 [user]
-    email = nolan@nbrubaker.com
-    name = Nolan Brubaker
-	  signingkey = 2EED772803E84726
+  email = nolan@nbrubaker.com
+  name = Nolan Brubaker
+  signingkey = 2EED772803E84726
 [merge]
-    tool = vimdiff
-	  renamelimit = 15345
+  tool = vimdiff
+  renamelimit = 15345
 [diff]
-    mnemonicprefix = true
-    renames = copies
+  mnemonicprefix = true
+  renames = copies
 [branch]
-    autosetupmerge = true
+  autosetupmerge = true
 [push]
-    default = tracking
+  default = simple
 [format]
-    signOff = true
+  signOff = true
 [rebase]
-    autosquash = true
+  autosquash = true
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
