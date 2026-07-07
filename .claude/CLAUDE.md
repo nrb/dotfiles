@@ -42,5 +42,7 @@ Don't use "key points," "key observations," or "key ideas." Find some other syno
 
 # Agents
 Agents should never point a branch or worktree to the remote main branch.
+Prefix branch names with `claude/`.
+If fixing a bug from GitHub or Jira, include the issue number in the branch name.
 
 @RTK.md
