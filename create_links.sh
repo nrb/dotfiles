@@ -188,4 +188,6 @@ linkDotfile $dotfile $to_create $actual_dotfile
 # Set up our projects directory in case it's not already there.
 if [[ -d $HOME/projects ]]; then
     mkdir $HOME/projects
+    mkdir $HOME/projects/work
+    mkdir $HOME/projects/personal
 fi
