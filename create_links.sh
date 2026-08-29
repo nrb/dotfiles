@@ -132,7 +132,6 @@ Deleting them will remove them immediately
         "$HOME"/.config/alacritty
         "$HOME"/.config/Code/User
         "$HOME"/.config/nvim
-        "$HOME"/.claude
     )
     
     # create the $DIRS_TO_MAKE
@@ -184,26 +183,6 @@ linkDotfile $dotfile $to_create $actual_dotfile
 actual_dotfile="$dotfiles_loc/dotpi"
 dotfile=".pi"
 to_create="$HOME/.pi"
-linkDotfile $dotfile $to_create $actual_dotfile
-
-actual_dotfile="$dotfiles_loc/.claude/CLAUDE.md"
-dotfile="CLAUDE.md"
-to_create="$HOME/.claude/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
-
-actual_dotfile="$dotfiles_loc/.claude/settings.json"
-dotfile="settings.json"
-to_create="$HOME/.claude/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
-
-actual_dotfile="$dotfiles_loc/.claude/RTK.md"
-dotfile="RTK.md"
-to_create="$HOME/.claude/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
-
-actual_dotfile="$dotfiles_loc/.claude/starship.toml"
-dotfile="starship.toml"
-to_create="$HOME/.claude/$dotfile"
 linkDotfile $dotfile $to_create $actual_dotfile
 
 # Set up our projects directory in case it's not already there.
