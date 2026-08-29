@@ -1,16 +1,17 @@
-# Minimal Nerd Template
+# Minimal Text Template
 "$schema" = "https://starship.rs/config-schema.json"
 
 palette = "custom"
 add_newline = false
 
-# dir git model context cost
+# dir git model context cost reset
 format = """
 $directory \
 $git_branch$git_status \
-${env_var.CLAUDE_MODEL_NERD} \
+${env_var.CLAUDE_MODEL} \
 ${env_var.CLAUDE_CONTEXT} \
-${env_var.CLAUDE_COST}\
+${env_var.CLAUDE_COST} \
+${env_var.CLAUDE_RATE_5H}\
 """
 
 [directory]
@@ -20,7 +21,7 @@ truncation_length = 2
 truncate_to_repo = true
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "fg:git_branch"
 format = "[$branch]($style)"
 
@@ -28,8 +29,8 @@ format = "[$branch]($style)"
 style = "fg:git_status"
 format = "[($all_status$ahead_behind)]($style)"
 
-[env_var.CLAUDE_MODEL_NERD]
-variable = "CLAUDE_MODEL_NERD"
+[env_var.CLAUDE_MODEL]
+variable = "CLAUDE_MODEL"
 format = "[$env_value]($style)"
 style = "fg:model"
 
@@ -42,6 +43,11 @@ style = "fg:context"
 variable = "CLAUDE_COST"
 format = "[$env_value]($style)"
 style = "fg:cost"
+
+[env_var.CLAUDE_RATE_5H]
+variable = "CLAUDE_RATE_5H"
+format = "[(reset $env_value)]($style)"
+style = "fg:rate_limit"
 
 ## Custom palette
 #
@@ -66,3 +72,6 @@ context_bg = "#3c3836"
 
 cost = "#689d6a"
 cost_bg = "#504945"
+
+rate_limit = "#fe8019"
+rate_limit_bg = "#3c3836"

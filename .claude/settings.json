@@ -1,12 +1,24 @@
 {
   "permissions": {
-    "defaultMode": "default",
     "allow": [
       "Bash(mkdir -p ~/.local/bin ~/.claude)",
       "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
       "Bash(chmod +x ~/.local/bin/starship-claude)"
+    ],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
     ]
-  }
   },
   "statusLine": {
     "type": "command",
@@ -28,18 +40,5 @@
   "effortLevel": "high",
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
-  "editorMode": "vim",
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      }
-    ]
-  }
+  "editorMode": "vim"
 }
