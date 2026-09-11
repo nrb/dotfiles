@@ -25,6 +25,7 @@
     "command": "~/.local/bin/starship-claude",
     "padding": 0
   },
+  "model": "claude-sonnet-4-6[1m]",
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "starship-claude@starship-claude": true
@@ -40,5 +41,8 @@
   "effortLevel": "high",
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "effortLevel": "medium",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true
 }
