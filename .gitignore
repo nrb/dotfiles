@@ -46,3 +46,4 @@ work_env.sh
 .claude/cache/
 .claude/daemon/
 .claude/projects/
+.ssh/1Password/
