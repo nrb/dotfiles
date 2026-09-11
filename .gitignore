@@ -47,3 +47,8 @@ work_env.sh
 .claude/daemon/
 .claude/projects/
 .ssh/1Password/
+
+.gnupg/private-keys-v1.d/
+.gnupg/public-keys.d/
+.gnupg/trustdb.gpg
+

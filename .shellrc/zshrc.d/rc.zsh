@@ -206,9 +206,16 @@ export PATH="$PNPM_HOME:$PATH"
 # If brew's not installed, uh oh.
 eval $(asdf completion zsh)
 
-# source $HOME/.config/op/plugins.sh
+if "which op" &> /dev/null ]]; then
+  source $HOME/.config/op/plugins.sh
+  gpg-connect-agent /bye &> /dev/null
+  if [ -f "/opt/homebrew/Cellar/gnupg/2.5.18/libexec/gpg-preset-passphrase" ]; then
+    op item get --reveal 24h7muturizzkgikihu3wn7424  --fields label=password | /opt/homebrew/Cellar/gnupg/2.5.18/libexec/gpg-preset-passphrase --preset 14FE0E4D7BA23E63DD62EB28F732CFEE8FBB775
+  fi
+fi
 
 # pipx installed scripts
 export PATH="$PATH:/Users/nbrubake/.local/bin"
+
 
 source <(fzf --zsh)
