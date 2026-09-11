@@ -67,5 +67,17 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[url "work:openshift/"]
+  insteadOf = https://github.com/openshift/
+  insteadOf = ssh://git@github.com/openshift/
+[url "work:kubernetes/"]
+  insteadOf = https://github.com/kubernetes/
+  insteadOf = ssh://git@github.com/kubernetes/
+[url "work:kubernetes-sigs/"]
+  insteadOf = https://github.com/kubernetes-sigs/
+  insteadOf = ssh://git@github.com/kubernetes-sigs/
+[url "personal"]
+  insteadOf = https://github.com/
+  insteadOf = ssh://git@github.com/
 [includeIf "gitdir:~/projects/work/"]
   path = ~/.dotfiles/gitconfig.work
