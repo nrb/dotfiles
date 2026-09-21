@@ -203,8 +203,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# If brew's not installed, uh oh.
-eval $(asdf completion zsh)
+eval "$(~/.local/bin/mise activate zsh)"
 
 if "which op" &> /dev/null ]]; then
   source $HOME/.config/op/plugins.sh
@@ -216,6 +215,7 @@ fi
 
 # pipx installed scripts
 export PATH="$PATH:/Users/nbrubake/.local/bin"
+
 
 
 source <(fzf --zsh)
