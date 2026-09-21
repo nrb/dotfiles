@@ -76,8 +76,5 @@
 [url "work:kubernetes-sigs/"]
   insteadOf = https://github.com/kubernetes-sigs/
   insteadOf = ssh://git@github.com/kubernetes-sigs/
-[url "personal"]
-  insteadOf = https://github.com/nrb/
-  insteadOf = ssh://git@github.com/nrb/
 [includeIf "gitdir:~/projects/work/"]
   path = ~/.dotfiles/gitconfig.work
