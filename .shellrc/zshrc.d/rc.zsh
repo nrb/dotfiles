@@ -204,7 +204,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # If brew's not installed, uh oh.
-eval $(asdf completion zsh)
+eval "$(mise activate zsh)"
 
 if "which op" &> /dev/null ]]; then
   source $HOME/.config/op/plugins.sh

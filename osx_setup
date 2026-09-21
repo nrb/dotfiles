@@ -147,10 +147,10 @@ function configureNightShift() {
     sudo killall corebrightnessd
 }
 
-function installAsdfStuff() {
+function installMiseStuff() {
     # Eventually this might be an array, but not right now
-    asdf plugin add golang
-    asdf install golang latest
+    # mise ships a core plugin for golang, so no `plugin add` step is needed.
+    mise use --global golang@latest
 }
 
 function main() {
@@ -164,7 +164,7 @@ function main() {
     installHomebrew
     installPrograms
     installNvimPlugins
-    installAsdfStuff
+    installMiseStuff
 
     configureDock
     cleanDockIcons

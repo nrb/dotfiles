@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
+#MISE description="Symlink dotfiles into $HOME (replaces create_links.sh). Usage: mise run bootstrap -- [remove|cleanup]"
+set -u
 
 ########################################
-# This is the list of conf files that we
-# want to automagically link after
-# checking out to the remote machine
+# Symlinks the dotfiles in this repo into $HOME, mirroring what
+# create_links.sh used to do, as a mise file task.
 ########################################
 
 # 'remove' means to remove the files so they can be linked
 # 'cleanup' means to remove all the files created by this script
-remove="$1"
+remove="${1:-}"
 
-dotfiles_loc=$(cd `dirname $0` && pwd)
+# mise sets MISE_PROJECT_ROOT to the repo root regardless of cwd.
+dotfiles_loc="${MISE_PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 excluded=(
     .svn
     .git
@@ -19,17 +21,17 @@ excluded=(
     ..
 )
 # make sure the dotfiles are only rwx by the owner
-chmod 700 $dotfiles_loc
+chmod 700 "$dotfiles_loc"
 
 notExcluded() {
     # check that the value exists
     if [ -z "$1" ]; then
         return
     fi
-    
-    for i in ${excluded[@]}
+
+    for i in "${excluded[@]}"
     do
-        if [ $i == $1 ]; then
+        if [ "$i" == "$1" ]; then
             # the item exists
             return 1
         fi
@@ -52,7 +54,7 @@ linkDotfile() {
         # symlink the conf file
         if [ ! -e "$to_create" ]; then
             echo "linking $actual_dotfile to $to_create"
-            ln -s $actual_dotfile $to_create
+            ln -s "$actual_dotfile" "$to_create"
         fi
         # warn the user that an existing file is in the way
         if [ ! -h "$to_create" -a -e "$to_create" ]; then
@@ -64,13 +66,13 @@ linkDotfile() {
 
 # Links all the dotfiles from the .dotfiles directory
 # -----------------------------------------------------------------
-for actual_dotfile in $(ls -d ${dotfiles_loc}/.*)
+for actual_dotfile in $(ls -d "${dotfiles_loc}"/.*)
     do
-        dotfile=$(echo $actual_dotfile | awk -F"$dotfiles_loc/" '{print $2}')
+        dotfile=$(echo "$actual_dotfile" | awk -F"$dotfiles_loc/" '{print $2}')
         # ignore certain directories
-        if notExcluded $dotfile; then
+        if notExcluded "$dotfile"; then
             to_create="$HOME/$dotfile"
-            linkDotfile $dotfile $to_create $actual_dotfile
+            linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
         fi
     done
 
@@ -84,7 +86,7 @@ for actual_dotfile in $(ls -d ${dotfiles_loc}/.*)
 # NOTE: None of these files are under version control...
 # -----------------------------------------------------------------
 if [ ! "$remove" = "remove" ]; then
-    
+
     # warn the user what is about to happen
     if [ "$remove" = "cleanup" ]; then
         echo '
@@ -94,7 +96,7 @@ Deleting them will remove them immediately
 ******************************************
 '
     fi
-    
+
     # touch extra files needed by the confs
     # -------------------------------------------------------------
     touch_me=(
@@ -124,7 +126,7 @@ Deleting them will remove them immediately
                 chmod 600 "$TOUCH_FILE"
             fi
         done
-    
+
     DIRS_TO_MAKE=(
         "$HOME"/bin
         "$HOME"/.backup
@@ -133,7 +135,7 @@ Deleting them will remove them immediately
         "$HOME"/.config/Code/User
         "$HOME"/.config/nvim
     )
-    
+
     # create the $DIRS_TO_MAKE
     # -------------------------------------------------------------
     processDotDir() {
@@ -157,37 +159,37 @@ Deleting them will remove them immediately
             echo "something in the way of $dot_directory being created"
         fi
     }
-    
+
     for dir in "${DIRS_TO_MAKE[@]}"
         do
-            processDotDir $dir
+            processDotDir "$dir"
         done
 fi
 
 actual_dotfile="$dotfiles_loc/.config/alacritty/alacritty.yml"
 dotfile="alacritty.yml"
 to_create="$HOME/.config/alacritty/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 
 actual_dotfile="$dotfiles_loc/.config/Code/User/settings.json"
 dotfile="settings.json"
 to_create="$HOME/.config/Code/User/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 
 
 actual_dotfile="$dotfiles_loc/.config/nvim/init.vim"
 dotfile="init.vim"
 to_create="$HOME/.config/nvim/$dotfile"
-linkDotfile $dotfile $to_create $actual_dotfile
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 
 actual_dotfile="$dotfiles_loc/dotpi"
 dotfile=".pi"
 to_create="$HOME/.pi"
-linkDotfile $dotfile $to_create $actual_dotfile
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 
 # Set up our projects directory in case it's not already there.
 if [[ -d $HOME/projects ]]; then
-    mkdir $HOME/projects
-    mkdir $HOME/projects/work
-    mkdir $HOME/projects/personal
+    mkdir "$HOME/projects"
+    mkdir "$HOME/projects/work"
+    mkdir "$HOME/projects/personal"
 fi
