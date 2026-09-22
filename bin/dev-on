@@ -1,0 +1,65 @@
+#!/usr/bin/env sh
+
+# tmux session layout for development work
+# 2-pane session for a given project directory
+# Usage: dev-on [session-name] [directory]
+# Based on https://dev.to/cseeman/a-simple-tmux-script-for-your-daily-dev-session-2bjb
+
+# Configuration
+DEFAULT_EDITOR="nvim"
+DEFAULT_PORT="3000"
+
+get_current_dir() {
+    pwd
+}
+
+get_project_name() {
+    basename "$(get_current_dir)"
+}
+
+get_branch_name() {
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        git branch --show-current 2>/dev/null || echo "main"
+    else
+        echo "no-git"
+    fi
+}
+
+generate_session_name() {
+    local project_name=$(get_project_name)
+    local branch_name=$(get_branch_name)
+
+    if [[ "$branch_name" != "no-git" ]]; then
+        safe_branch=$(echo "$branch_name" | sed 's/[\/:]/-/g')
+        echo "${project_name}-${safe_branch}"
+    else
+        echo "$project_name"
+    fi
+}
+
+SESSION_NAME="${1:-$(generate_session_name)}"
+WORK_DIR="${2:-$(get_current_dir)}"
+
+if [[ ! -d "$WORK_DIR" ]]; then
+    echo "Error: Directory $WORK_DIR does not exist"
+    exit 1
+fi
+
+# Reattach if session already exists
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    echo "Session '$SESSION_NAME' already exists. Attaching..."
+    tmux attach-session -t "$SESSION_NAME"
+    exit 0
+fi
+
+# Create session and split into two panes
+tmux new-session -d -s "$SESSION_NAME" -c "$WORK_DIR"
+tmux split-window -h -c "$WORK_DIR"
+
+# Left pane: shell, right pane: Claude Code
+tmux send-keys -t 1 "# Ready for commands (server, etc.)" C-m
+tmux send-keys -t 2 "claude" C-m  # C-m = enter
+
+tmux select-pane -t 1
+tmux rename-window "dev"
+tmux attach-session -t "$SESSION_NAME"
