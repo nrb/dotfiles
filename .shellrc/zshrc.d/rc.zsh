@@ -205,10 +205,11 @@ export PATH="$PNPM_HOME:$PATH"
 
 eval "$(~/.local/bin/mise activate zsh)"
 
-if "which op" &> /dev/null ]]; then
+if [ -f /opt/homebrew/bin/op ]; then
   source $HOME/.config/op/plugins.sh
   gpg-connect-agent /bye &> /dev/null
   if [ -f "/opt/homebrew/Cellar/gnupg/2.5.18/libexec/gpg-preset-passphrase" ]; then
+    echo "Unlock 1password to get preset gpg passphrase"
     op item get --reveal 24h7muturizzkgikihu3wn7424  --fields label=password | /opt/homebrew/Cellar/gnupg/2.5.18/libexec/gpg-preset-passphrase --preset 14FE0E4D7BA23E63DD62EB28F732CFEE8FBB775
   fi
 fi
