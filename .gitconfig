@@ -58,7 +58,11 @@
 [gpg]
 	format = ssh
 [commit]
-  gpgsign = true
+	gpgsign = true
+# 1password cli paths differ on platforms
+# https://www.kenmuse.com/blog/automatic-ssh-commit-signing-with-1password/
+[includeIf "gitdir/i:/Users"]
+	path = ~/.dotfiles/gitconfig.macos
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
