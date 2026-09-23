@@ -210,4 +210,19 @@ eval "$(~/.local/bin/mise activate zsh)"
 # pipx installed scripts
 export PATH="$PATH:/Users/nbrubake/.local/bin"
 
+### GIT CONFIG
+# signing with 1password's cli gets tricky across platforms. borrowed this from
+# https://www.kenmuse.com/blog/automatic-ssh-commit-signing-with-1password/
+
+# check to see if we're on macOS and use 1Password's CLI for git signing if so.
+if [ -f "/Applications/1Password.app/Contents/MacOS/op-ssh-sign" ]; then
+  git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+if
+
+# linux is a little trickier; only use the local CLI if we're not in an SSH session
+# SSH can use agent forwarding
+if [ -f "/op1/1Password/op-ssh-sign" && (-n $SSH_CLIENT || -n $SSH_TTY) ]; then
+  git config --global gpg.ssh.program "/op1/1Password/op-ssh-sign"
+fi
+
 source <(fzf --zsh)
