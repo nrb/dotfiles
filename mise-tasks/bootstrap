@@ -134,6 +134,7 @@ Deleting them will remove them immediately
         "$HOME"/.config/alacritty
         "$HOME"/.config/Code/User
         "$HOME"/.config/nvim
+        "$HOME"/.config/mise
     )
 
     # create the $DIRS_TO_MAKE
@@ -174,6 +175,24 @@ linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 actual_dotfile="$dotfiles_loc/.config/Code/User/settings.json"
 dotfile="settings.json"
 to_create="$HOME/.config/Code/User/$dotfile"
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
+
+# Link mise's TOML configs into its global config location so the tools
+# they declare are available everywhere, not just under $dotfiles_loc.
+# mise loads ~/.config/mise/config.toml plus config.<MISE_ENV>.toml.
+actual_dotfile="$dotfiles_loc/mise.toml"
+dotfile="config.toml"
+to_create="$HOME/.config/mise/$dotfile"
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
+
+actual_dotfile="$dotfiles_loc/mise.work.toml"
+dotfile="config.work.toml"
+to_create="$HOME/.config/mise/$dotfile"
+linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
+
+actual_dotfile="$dotfiles_loc/mise.personal.toml"
+dotfile="config.personal.toml"
+to_create="$HOME/.config/mise/$dotfile"
 linkDotfile "$dotfile" "$to_create" "$actual_dotfile"
 
 

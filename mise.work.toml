@@ -1,0 +1,20 @@
+[tools]
+# Work-only additions, layered on top of mise.toml when MISE_ENV=work.
+atuin = "latest"
+azure-cli = "latest"
+bazelisk = "latest"
+clusterctl = "latest"
+direnv = "latest"
+ko = "latest"
+krew = "latest"
+kubectl = "latest"
+kustomize = "latest"
+lnav = "latest"
+pipx = "latest"
+podman = "latest"
+python = ["3.10", "3.11"]
+shellcheck = "latest"
+task = "latest"
+terraform = "latest"
+wtfutil = "latest"
+yq = "latest"

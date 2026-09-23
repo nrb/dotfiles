@@ -102,6 +102,14 @@ if [ -f /opt/homebrew/bin/brew ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# Select which mise.<env>.toml overlay (see ~/.dotfiles/mise.toml) applies on
+# top of the shared mise.toml tools, mirroring osx_setup's Brewfile.$usefile.
+if [ "$USER" = "nbrubake" ]; then
+	export MISE_ENV=work
+else
+	export MISE_ENV=personal
+fi
+
 if [ -f $HOME/.cargo/env ]; then
 	source $HOME/.cargo/env
 fi

@@ -148,9 +148,9 @@ function configureNightShift() {
 }
 
 function installMiseStuff() {
-    # Eventually this might be an array, but not right now
-    # mise ships a core plugin for golang, so no `plugin add` step is needed.
-    mise use --global golang@latest
+    # Tool versions live in mise.toml/mise.$MISE_ENV.toml (symlinked by
+    # `mise run bootstrap` to ~/.config/mise/), so just install from those.
+    mise install
 }
 
 function main() {

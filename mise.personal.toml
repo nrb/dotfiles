@@ -1,0 +1,4 @@
+[tools]
+# Personal-only additions, layered on top of mise.toml when MISE_ENV=personal.
+docker-cli = "latest"
+swiftlint = "latest"
