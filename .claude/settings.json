@@ -5,7 +5,7 @@
       "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
       "Bash(chmod +x ~/.local/bin/starship-claude)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "hooks": {
     "PreToolUse": [
