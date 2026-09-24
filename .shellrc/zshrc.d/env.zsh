@@ -107,8 +107,8 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 # On macOS, override the ssh-agent socket and use 1Password
-if [ -f $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ]; then
-    export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+if [ -S "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
+    export SSH_AUTH_SOCK="${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 fi
 
 # Openshift makefiles have issues with containers on arm64. Turn it off for now
