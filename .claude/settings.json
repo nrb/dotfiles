@@ -3,10 +3,12 @@
     "allow": [
       "Bash(mkdir -p ~/.local/bin ~/.claude)",
       "Bash(cp /Users/nrb/.claude/plugins/cache/starship-claude/starship-claude/1.0.0/bin/starship-claude ~/.local/bin/starship-claude)",
-      "Bash(chmod +x ~/.local/bin/starship-claude)"
+      "Bash(chmod +x ~/.local/bin/starship-claude)",
+      "Bash(rtk *)"
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-sonnet-5",
   "hooks": {
     "PreToolUse": [
       {
@@ -25,7 +27,6 @@
     "command": "~/.local/bin/starship-claude",
     "padding": 0
   },
-  "model": "claude-sonnet-4-6[1m]",
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "starship-claude@starship-claude": true
@@ -38,11 +39,8 @@
       }
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
-  "editorMode": "vim",
-  "effortLevel": "medium",
-  "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true
+  "editorMode": "vim"
 }
