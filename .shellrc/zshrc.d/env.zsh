@@ -111,6 +111,10 @@ if [ -S "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     export SSH_AUTH_SOCK="${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 fi
 
+if [ -z $(which codex) ]; then
+  eval "$(codex completion zsh)"
+fi
+
 # Openshift makefiles have issues with containers on arm64. Turn it off for now
 export NO_DOCKER=1
 
