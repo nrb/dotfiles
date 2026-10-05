@@ -185,6 +185,21 @@ dotfile=".pi"
 to_create="$HOME/.pi"
 linkDotfile $dotfile $to_create $actual_dotfile
 
+actual_dotfile="$dotfiles_loc/.codex/RTK.md"
+dotfile="RTK.md"
+to_create="$HOME/.codex/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
+actual_dotfile="$dotfiles_loc/.codex/hooks.json"
+dotfile="hooks.json"
+to_create="$HOME/.codex/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
+actual_dotfile="$dotfiles_loc/.codex/config.toml"
+dotfile="config.toml"
+to_create="$HOME/.codex/$dotfile"
+linkDotfile $dotfile $to_create $actual_dotfile
+
 # Set up our projects directory in case it's not already there.
 if [[ -d $HOME/projects ]]; then
     mkdir $HOME/projects

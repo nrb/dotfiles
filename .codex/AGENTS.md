@@ -45,4 +45,4 @@ Agents should never point a branch or worktree to the remote main branch.
 Prefix branch names with `agent/`.
 If fixing a bug from GitHub or Jira, include the issue number in the branch name.
 
-@RTK.md
+@/Users/nbrubake/.codex/RTK.md
