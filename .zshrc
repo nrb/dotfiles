@@ -7,3 +7,6 @@ if [ -d $HOME/.dotfiles/.shellrc/zshrc.d ]; then
     source $file
   done
 fi
+
+# opencode
+export PATH=/Users/nbrubake/.opencode/bin:$PATH
