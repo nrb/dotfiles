@@ -1,0 +1,19 @@
+{
+  "model": "rits/zai-org/glm-5-3",
+  "modelPicker": {
+    "options": [
+      {
+        "model": "rits/zai-org/glm-5-3",
+        "label": "GLM 5.3",
+        "description": "Hosted via EnMaaS",
+        "behavesAs": "claude-opus-4-8"
+      },
+      {
+        "model": "rits/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "label": "DeepSeek V4.1 Flash",
+        "description": "Hosted via EnMaaS",
+        "behavesAs": "claude-opus-4-8"
+      }
+     ]
+   }
+ }
