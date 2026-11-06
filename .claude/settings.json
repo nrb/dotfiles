@@ -29,7 +29,8 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "starship-claude@starship-claude": true
+    "starship-claude@starship-claude": true,
+    "gopls-lsp@ai-helpers": false
   },
   "extraKnownMarketplaces": {
     "starship-claude": {
